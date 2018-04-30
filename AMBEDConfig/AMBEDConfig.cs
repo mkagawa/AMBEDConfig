@@ -24,56 +24,20 @@ namespace AMBEDConfig
         public AMBEDConfig()
         {
             InitializeComponent();
-            var cl = new CultureInfo("ja-JP");
-
-
-
-
-
-            foreach (Control c in this.Controls)
-            {
-                if (c.GetType() == typeof(GroupBox))
-                {
-                    foreach (Control cc in c.Controls)
-                    {
-                        if (cc.GetType() == typeof(Label))
-                        {
-                            //resource.ApplyResources(cc, cc.Name, c);
-                            Console.WriteLine(" > Name: " + cc.Name);
-                        }
-                    }
-                }
-                else
-                {
-                    //resource.ApplyResources(c, c.Name, originalCulture);
-                    Console.WriteLine(" Name: " + c.Name);
-                }
-
-            }
-            /*
-            if(manifest )
-            {
-                string manifest = manifests[0].Replace(".resources", string.Empty);
-            }
-             */
-
-            // Works !
-            //manager.GetString("PleaseCallIT", null);
-
-            //Language resource handling
-            //var resource = new ResourceManager("Resources.Res", typeof(AMBEDConfig).Assembly); 
-            //new ComponentResourceManager(typeof(AMBEDConfig));
-            //ResourceSet resourceSet = resource.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
-
-
-
-            ApplyCulture(cl);
+            ApplyCulture(new CultureInfo("ja-JP"));
         }
 
         private void ApplyCulture(CultureInfo culture)
         {
-            // Applies culture to current Thread.
-            Thread.CurrentThread.CurrentUICulture = culture;
+            if (culture != null)
+            {
+                // Applies culture to current Thread.
+                Thread.CurrentThread.CurrentUICulture = culture;
+            }
+            else
+            {
+                culture = Thread.CurrentThread.CurrentUICulture;
+            }
 
             var name = typeof(AMBEDConfig).Name + @".Resources.{0}.resources";
             var manifests = typeof(AMBEDConfig).Assembly.GetManifestResourceNames();
@@ -120,6 +84,17 @@ namespace AMBEDConfig
                             fieldInfos[index].GetValue(this), new object[] { text });
                     }
                 }
+                if (fieldInfos[index].FieldType.GetProperty("Tag") != null)
+                {
+                    text = resources.GetString("tag_" + fieldInfos[index].Name);
+                    if (text != null)
+                    {
+                        fieldInfos[index].FieldType.InvokeMember("Tag",
+                            BindingFlags.SetProperty, null,
+                            fieldInfos[index].GetValue(this), new object[] { text });
+                    }
+                }
+ 
             }
 
             // Call ResumeLayout for Form and all fields
@@ -144,16 +119,18 @@ namespace AMBEDConfig
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        private Match[] readConfig(String fileName)
+        private Dictionary<int, Match> readConfig(String fileName)
         {
-            var mch = new List<Match>();
+            var mch = new Dictionary<int, Match>();
             var cwd = Directory.GetCurrentDirectory();
             var rex = fileToRegEx[fileName].regExs.Select(t => new Regex(t));
             using (var sshFile = new StreamReader(cwd + @"\" + fileName))
             {
                 String line;
+                int lineCnt = 0;
                 while ((line = sshFile.ReadLine()) != null)
                 {
+                    lineCnt++;
                     var m = rex.Select(rx =>
                     {
                         var mx = rx.Matches(line);
@@ -161,12 +138,11 @@ namespace AMBEDConfig
                     });
                     if (m.Any(x => x != null))
                     {
-                        mch.Add(m.First(x => x != null));
-                        //System.Console.WriteLine(sshPortNo);
+                        mch[lineCnt] = m.First(x => x != null);
                     }
                 }
             }
-            return mch.ToArray();
+            return mch;
         }
 
         private void writeConfig(String fileName, Dictionary<String, String> valuePairs, String[] regEx)
@@ -176,29 +152,32 @@ namespace AMBEDConfig
 
         class _myObj
         {
-            public _myObj(String[] rex, Action<Match[], AMBEDConfig> func)
+            public _myObj(String[] rex, Action<Dictionary<int, Match>, AMBEDConfig> func)
             {
                 this.regExs = rex;
                 this.myFunc = func;
             }
             public String[] regExs { get; set; }
-            public Action<Match[], AMBEDConfig> myFunc { get; set; }
+            public Action<Dictionary<int, Match>, AMBEDConfig> myFunc { get; set; }
         }
 
         Dictionary<String, _myObj> fileToRegEx = new Dictionary<string, _myObj>() {
-            {"sshd_config.txt", new _myObj(new String[] { @"^\s*Port\s+(\d+)\s*$" },(r,ctx)=>{
+            {"sshd_config.txt", new _myObj(new String[] { @"^\s*Port\s+(\d+)\s*$" },(r,ctx) => {
                 ctx.sshPortNo = Int32.Parse(r[0].Groups[1].Value);
                 ctx.sshPort.Text = ctx.sshPortNo.ToString();
             })},
-            {"AMBEDCMD.txt", new _myObj(new String[] { @"^.*?\s-p\s*(\d+)\s+.*$" }, (r,ctx)=>{
+            {"AMBEDCMD.txt", new _myObj(new String[] { @"^.*?\s-p\s*(\d+)\s+.*$" }, (r,ctx) => {
                 ctx.ambePortNo = Int32.Parse(r[0].Groups[1].Value);
                 ctx.ambePort.Text = ctx.ambePortNo.ToString();
             })},
             {"wpa_supplicant.txt", new _myObj(new String[] { 
                     "^\\s*(ssid|psk)=\"(.+?)\"\\s*$", "^\\s*(key_mgmt)=\"?(.+?)\"?\\s*$"
-            }, (r,ctx)=>{
-                foreach (var mx in r)
+            }, (r,ctx) => {
+                foreach (var mr in r)
                 {
+                    var mx = mr.Value;
+                    int lineNo = mr.Key;
+
                     var k = mx.Groups[1].Value;
                     var v = mx.Groups[2].Value;
                     if (k == "ssid")
@@ -219,10 +198,13 @@ namespace AMBEDConfig
                     "^\\s*static\\s+(ip_address|routers|domain_name_servers)=(.+?)\\s*$",
                     "^\\s*(_enabled) (\\d)\\s*$",
                     "^\\s*(interface) (\\w+)\\s*$"
-                }, (r, ctx)=>{
+                }, (r, ctx) => {
                 var curIf = "";
-                foreach (var mx in r)
+                foreach (var mr in r)
                 {
+                    var mx = mr.Value;
+                    int lineNo = mr.Key;
+
                     var k = mx.Groups[1].Value;
                     var v = mx.Groups[2].Value;
                     if (k == "_enabled")

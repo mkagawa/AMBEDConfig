@@ -176,5 +176,32 @@ namespace AMBEDConfig.Resources {
                 return ResourceManager.GetString("programTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ポータブルAMBEサーバーに割り当てる固定IPアドレス.
+        /// </summary>
+        internal static string tag_ipAddr1_1 {
+            get {
+                return ResourceManager.GetString("tag_ipAddr1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ルーターまたは携帯電話のIPアドレス.
+        /// </summary>
+        internal static string tag_ipAddr2_1 {
+            get {
+                return ResourceManager.GetString("tag_ipAddr2_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WiFiのSSIDを入力してください.
+        /// </summary>
+        internal static string tag_ssid {
+            get {
+                return ResourceManager.GetString("tag_ssid", resourceCulture);
+            }
+        }
     }
 }

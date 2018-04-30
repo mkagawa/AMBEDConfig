@@ -134,6 +134,7 @@
             resources.GetString("wifiType.Items3")});
             resources.ApplyResources(this.wifiType, "wifiType");
             this.wifiType.Name = "wifiType";
+            this.wifiType.Tag = "WiFi encryption type (if not known, WPA-PSK)";
             // 
             // label11
             // 
@@ -175,6 +176,7 @@
             // 
             resources.ApplyResources(this.ipAddr2_1, "ipAddr2_1");
             this.ipAddr2_1.Name = "ipAddr2_1";
+            this.ipAddr2_1.Tag = "Router\'s IP address";
             this.ipAddr2_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr2_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
             // 
@@ -230,6 +232,7 @@
             // 
             resources.ApplyResources(this.ipAddr1_1, "ipAddr1_1");
             this.ipAddr1_1.Name = "ipAddr1_1";
+            this.ipAddr1_1.Tag = "Static IP address for the ambe server";
             this.ipAddr1_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr1_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
             // 
@@ -237,7 +240,7 @@
             // 
             resources.ApplyResources(this.keyPhrase, "keyPhrase");
             this.keyPhrase.Name = "keyPhrase";
-            this.keyPhrase.Tag = "WiFi pass phrase";
+            this.keyPhrase.Tag = "WiFi key phrase or password";
             this.keyPhrase.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
             // 
             // ssid

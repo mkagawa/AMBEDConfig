@@ -157,4 +157,13 @@
   <data name="label_sshPort" xml:space="preserve">
     <value>SSHポート番号(&amp;S)</value>
   </data>
+  <data name="tag_ipAddr1_1" xml:space="preserve">
+    <value>ポータブルAMBEサーバーに割り当てる固定IPアドレス</value>
+  </data>
+  <data name="tag_ipAddr2_1" xml:space="preserve">
+    <value>ルーターまたは携帯電話のIPアドレス</value>
+  </data>
+  <data name="tag_ssid" xml:space="preserve">
+    <value>WiFiのSSIDを入力してください</value>
+  </data>
 </root>
