@@ -35,6 +35,7 @@ The target files are following 4 files.
   - sshd_config.txt
   - AMBEServerGPIO.txt
   - dhcpcd.txt
+
 These files should be symbolic linked to the corresponding configuration files in the Linux system.
 
 ## Build
