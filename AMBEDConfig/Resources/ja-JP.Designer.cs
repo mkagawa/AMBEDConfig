@@ -70,6 +70,69 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ルーターアドレスの値が不正です.
+        /// </summary>
+        internal static string error_routerAddr2 {
+            get {
+                return ResourceManager.GetString("error_routerAddr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USB LANルーターアドレスの値が不正です.
+        /// </summary>
+        internal static string error_routerAddr4 {
+            get {
+                return ResourceManager.GetString("error_routerAddr4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to サブネットマスクは16以上の値です.
+        /// </summary>
+        internal static string error_subnet16 {
+            get {
+                return ResourceManager.GetString("error_subnet16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to サブネットマスクは24以上の値です.
+        /// </summary>
+        internal static string error_subnet24 {
+            get {
+                return ResourceManager.GetString("error_subnet24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to サブネットマスクは8以上の値です.
+        /// </summary>
+        internal static string error_subnet8 {
+            get {
+                return ResourceManager.GetString("error_subnet8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 固定IPアドレス.
+        /// </summary>
+        internal static string fld_ipAddr1 {
+            get {
+                return ResourceManager.GetString("fld_ipAddr1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ルーターIPアドレス.
+        /// </summary>
+        internal static string fld_routerAddr2 {
+            get {
+                return ResourceManager.GetString("fld_routerAddr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WiFi設定.
         /// </summary>
         internal static string groupBox1 {
@@ -102,6 +165,15 @@ namespace AMBEDConfig.Resources {
         internal static string label_ambePort {
             get {
                 return ResourceManager.GetString("label_ambePort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 国コード(&amp;C).
+        /// </summary>
+        internal static string label_countryCode {
+            get {
+                return ResourceManager.GetString("label_countryCode", resourceCulture);
             }
         }
         

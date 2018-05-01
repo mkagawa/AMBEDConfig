@@ -118,13 +118,65 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label_wifiType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 147</value>
+  <data name="countryCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>368, 147</value>
   </data>
-  <data name="label_wifiType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+  <data name="countryCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="countryCode.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;countryCode.Name" xml:space="preserve">
+    <value>countryCode</value>
+  </data>
+  <data name="&gt;&gt;countryCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;countryCode.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;countryCode.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label_countryCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label_countryCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 147</value>
+  </data>
+  <data name="label_countryCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 20</value>
+  </data>
+  <data name="label_countryCode.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="label_countryCode.Text" xml:space="preserve">
+    <value>&amp;Country Code</value>
+  </data>
+  <data name="label_countryCode.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;label_countryCode.Name" xml:space="preserve">
+    <value>label_countryCode</value>
+  </data>
+  <data name="&gt;&gt;label_countryCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_countryCode.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label_countryCode.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label_wifiType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 147</value>
+  </data>
+  <data name="label_wifiType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
   <data name="label_wifiType.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -144,7 +196,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label_wifiType.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="wifiType.Items" xml:space="preserve">
     <value>WPA-PSK</value>
@@ -162,7 +214,7 @@
     <value>130, 147</value>
   </data>
   <data name="wifiType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 21</value>
+    <value>123, 21</value>
   </data>
   <data name="wifiType.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -177,7 +229,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;wifiType.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -207,7 +259,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -237,7 +289,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -267,7 +319,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="ipAddr2_4.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 112</value>
@@ -288,7 +340,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr2_4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="ipAddr2_3.Location" type="System.Drawing.Point, System.Drawing">
     <value>250, 112</value>
@@ -309,7 +361,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr2_3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="ipAddr2_2.Location" type="System.Drawing.Point, System.Drawing">
     <value>190, 112</value>
@@ -330,7 +382,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr2_2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="ipAddr2_1.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 112</value>
@@ -351,7 +403,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr2_1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -381,7 +433,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -411,7 +463,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -441,7 +493,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -471,7 +523,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="ipAddr1_5.Location" type="System.Drawing.Point, System.Drawing">
     <value>380, 82</value>
@@ -492,7 +544,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr1_5.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="ipAddr1_4.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 82</value>
@@ -513,7 +565,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr1_4.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="ipAddr1_3.Location" type="System.Drawing.Point, System.Drawing">
     <value>250, 82</value>
@@ -534,7 +586,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr1_3.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="ipAddr1_2.Location" type="System.Drawing.Point, System.Drawing">
     <value>190, 82</value>
@@ -555,7 +607,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr1_2.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="ipAddr1_1.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 82</value>
@@ -576,7 +628,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ipAddr1_1.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="keyPhrase.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 52</value>
@@ -597,7 +649,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;keyPhrase.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="ssid.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 22</value>
@@ -618,13 +670,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;ssid.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="label_routerAddr2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 111</value>
+    <value>3, 111</value>
   </data>
   <data name="label_routerAddr2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_routerAddr2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -645,13 +697,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label_routerAddr2.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="label_ipAddr1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 82</value>
+    <value>3, 82</value>
   </data>
   <data name="label_ipAddr1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_ipAddr1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -672,13 +724,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label_ipAddr1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="label_keyPhrase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 52</value>
+    <value>3, 52</value>
   </data>
   <data name="label_keyPhrase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_keyPhrase.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -699,13 +751,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label_keyPhrase.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="label_ssid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 22</value>
+    <value>3, 22</value>
   </data>
   <data name="label_ssid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_ssid.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -726,7 +778,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label_ssid.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 12</value>
@@ -752,258 +804,6 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;checkBox_useUSB.Name" xml:space="preserve">
-    <value>checkBox_useUSB</value>
-  </data>
-  <data name="&gt;&gt;checkBox_useUSB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_useUSB.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;checkBox_useUSB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
-  </data>
-  <data name="&gt;&gt;label16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label17.Name" xml:space="preserve">
-    <value>label17</value>
-  </data>
-  <data name="&gt;&gt;label17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label18.Name" xml:space="preserve">
-    <value>label18</value>
-  </data>
-  <data name="&gt;&gt;label18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_4.Name" xml:space="preserve">
-    <value>ipAddr4_4</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_4.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_3.Name" xml:space="preserve">
-    <value>ipAddr4_3</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_3.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_2.Name" xml:space="preserve">
-    <value>ipAddr4_2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_2.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_1.Name" xml:space="preserve">
-    <value>ipAddr4_1</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_1.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr4_1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label19.Name" xml:space="preserve">
-    <value>label19</value>
-  </data>
-  <data name="&gt;&gt;label19.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label20.Name" xml:space="preserve">
-    <value>label20</value>
-  </data>
-  <data name="&gt;&gt;label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;label21.Name" xml:space="preserve">
-    <value>label21</value>
-  </data>
-  <data name="&gt;&gt;label21.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label21.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;label22.Name" xml:space="preserve">
-    <value>label22</value>
-  </data>
-  <data name="&gt;&gt;label22.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label22.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_5.Name" xml:space="preserve">
-    <value>ipAddr3_5</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_5.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_5.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_4.Name" xml:space="preserve">
-    <value>ipAddr3_4</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_4.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_4.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_3.Name" xml:space="preserve">
-    <value>ipAddr3_3</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_3.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_3.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_2.Name" xml:space="preserve">
-    <value>ipAddr3_2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_2.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_2.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_1.Name" xml:space="preserve">
-    <value>ipAddr3_1</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_1.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;ipAddr3_1.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;label_routerAddr4.Name" xml:space="preserve">
-    <value>label_routerAddr4</value>
-  </data>
-  <data name="&gt;&gt;label_routerAddr4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_routerAddr4.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label_routerAddr4.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;label_ipAddr3.Name" xml:space="preserve">
-    <value>label_ipAddr3</value>
-  </data>
-  <data name="&gt;&gt;label_ipAddr3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_ipAddr3.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label_ipAddr3.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 202</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 117</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>USB LAN Configuration (Use only with USB LAN adapter)</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="checkBox_useUSB.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 19</value>
   </data>
@@ -1011,7 +811,7 @@
     <value>207, 29</value>
   </data>
   <data name="checkBox_useUSB.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="checkBox_useUSB.Text" xml:space="preserve">
     <value>&amp;Use USB LAN Adaptor</value>
@@ -1428,10 +1228,10 @@
     <value>16</value>
   </data>
   <data name="label_routerAddr4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 88</value>
+    <value>3, 88</value>
   </data>
   <data name="label_routerAddr4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_routerAddr4.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1455,10 +1255,10 @@
     <value>17</value>
   </data>
   <data name="label_ipAddr3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 54</value>
+    <value>3, 54</value>
   </data>
   <data name="label_ipAddr3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+    <value>124, 20</value>
   </data>
   <data name="label_ipAddr3.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -1481,77 +1281,29 @@
   <data name="&gt;&gt;label_ipAddr3.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;ambePort.Name" xml:space="preserve">
-    <value>ambePort</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 202</value>
   </data>
-  <data name="&gt;&gt;ambePort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>450, 117</value>
   </data>
-  <data name="&gt;&gt;ambePort.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;ambePort.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>USB LAN Configuration (Use only with USB LAN adapter)</value>
   </data>
-  <data name="&gt;&gt;sshPort.Name" xml:space="preserve">
-    <value>sshPort</value>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;sshPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sshPort.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;sshPort.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label_ambePort.Name" xml:space="preserve">
-    <value>label_ambePort</value>
-  </data>
-  <data name="&gt;&gt;label_ambePort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_ambePort.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;label_ambePort.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label_sshPort.Name" xml:space="preserve">
-    <value>label_sshPort</value>
-  </data>
-  <data name="&gt;&gt;label_sshPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_sshPort.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;label_sshPort.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 324</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 59</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Other Configuration</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="ambePort.Location" type="System.Drawing.Point, System.Drawing">
     <value>344, 26</value>
@@ -1649,6 +1401,30 @@
   <data name="&gt;&gt;label_sshPort.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 324</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>450, 59</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Other Configuration</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>301, 389</value>
   </data>
@@ -1705,6 +1481,65 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>480, 421</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAGACoDAAAFgAAACgAAAAgAAAAQAAAAAEAGAAAAAAAAAAAAGQAAABkAAAAAAAAAAAA
+        AAD///////////////////////////8rKyvZ2dn/////////////////////////////////////////
+        //////////////+NjY12dnb///////////////////////////////////////////////////////9X
+        V1eMjIz///////////////////////////////////////////////////////87Ozunp6f/////////
+        //////////////////////////////////////////////+jo6M/Pz//////////////////////////
+        ///////////////////////////r6+sJCQnu7u7/////////////////////////////////////////
+        ///////////////r6+sICAju7u7///////////////////////////////////////////////+ioqJA
+        QED///////////////////////////////////////////////////////////////87Ozunp6f/////
+        //////////////////////////////////////////9XV1eMjIz/////////////////////////////
+        //////////////////////////////////+Hh4dbW1v/////////////////////////////////////
+        ///////6+voRERHX19f/////////////////////////////////////////////////////////////
+        ///S0tITExP8/Pz///////////////////////////////////////++vr4lJSX/////////////////
+        //////////////////////////////////////////////////////8gICB3d3ePj4+Pj4+Pj4+Pj4+P
+        j4+Pj4+Pj4+Pj4+Pj4+Pj49KSkpwcHD/////////////////////////////////////////////////
+        //////////////////////9ra2sjIyNeXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl4GBga8vLz/
+        //////////////////////////////////////////////////////////////////////+3t7crKyv/
+        ///////////////////////////////////b29sPDw/5+fn/////////////////////////////////
+        ///////////////////////////////////////39/cNDQ3d3d3/////////////////////////////
+        //+Pj49VVVX/////////////////////////////////////////////////////////////////////
+        //////////9PT0+SkpL///////////////////////////////9DQ0OhoaH/////////////////////
+        //////////////////////////////////////////////////////////+cnJwTExMuLi4uLi4uLi4u
+        Li4uLi4uLi4uLi4uLi4ICAjq6ur/////////////////////////////////////////////////////
+        ///////////////////////////l5eUEBAS1tbXBwcHBwcHBwcHBwcHBwcHBwcF6eno5OTn/////////
+        //////////////////////////////////////////////////////////////////////////////80
+        NDSvr6////////////////////////9eXl6FhYX/////////////////////////////////////////
+        //////////////////////////////////////////////+AgIBjY2P////////////////////9/f0W
+        FhbR0dH////////////////////8/Pz////////////////////////////////////y8vI1NTXFxcX/
+        ///////////////Ly8saGhr+/v7////////////////GxsYfHx/+/v7///////////////+6urovLy/x
+        8fH///////////////////////////////9bW1tPT0/9/f3////////////////+/v4aGhrKysr/////
+        //////////96enpqamr////////////////////+/v5ZWVlYWFj///////////////////////////+9
+        vb0XFxft7e3///+4uLg+Pj7///////////9kZGQWFhYiIiIiIiIiIiIiIiILCwu2trb///////////9h
+        YWGwsLD////y8vIdHR24uLj///////////////////////9CQkKQkJD////q6uoWFha2trb/////////
+        ///w8PDMzMzMzMxAQECBgYHMzMzPz8/+/v7///////////+3t7cRERHj4+P///+dnZ08PDz/////////
+        ///////////h4eELCwvx8fH///9zc3NfX1/////4+Pg+Pj7BwcH////////h4eE3Nzd0dHT09PT/////
+        ///MzMwzMzPz8/P///9kZGRnZ2f////39/cSEhLb29v///////////////+fn59ISEj////9/f0WFhbR
+        0dH///+JiYk8PDz7+/v///+UlJQQEBBOTk47OzscHBzOzs7////+/v5JSUl5eXn////Y2NgNDQ34+Pj/
+        //9VVVWYmJj///////////////9zc3N4eHj////U1NQaGhr///////8nJye6urr////Q0NASEhLX19f/
+        //////+Xl5cmJib9/f3////IyMgZGRn///////8iIiLHx8f///+IiIhqamr///////////////9eXl6R
+        kZH///+4uLg7Ozv////4+PgBAQHz8/P///+Dg4NnZ2f////////////+/v4YGBjS0tL////9/f0GBgbq
+        6ur///9ERESpqan///+goKBUVFT///////////////9fX1+QkJD///+6uro5OTn////5+fkCAgLy8vL/
+        //+EhIRjY2P////////////9/f0WFhbU1NT////7+/sFBQXt7e3///9DQ0Oqqqr///+fn59VVVX/////
+        //////////93d3d1dXX////a2toUFBT+/v7///8tLS21tbX////S0tIPDw/Ly8v///////+IiIgpKSn9
+        /f3////BwcEhISH///////8fHx/Ly8v///+GhoZsbGz///////////////+mpqZCQkL////+/v4fHx/F
+        xcX///+VlZU0NDT4+Pj///+ZmZkMDAw8PDwqKiofHx/R0dH////7+/s/Pz+IiIj////T09MSEhL6+vr/
+        //9SUlKampr////////////////p6ekKCgrs7Oz///+Dg4NOTk7////7+/tLS0uysrL////////l5eWq
+        qqq1tbX29vb///////+/v79ERET5+fn///9dXV1xcXH////19fUQEBDf39////////////////////9Q
+        UFCFhYX////z8/MhISGdnZ3///////////////////////////////////////////////////////+v
+        r68YGBjr6+v///+Xl5dBQUH////////////////////////Nzc0SEhLl5eX////MzMxXV1f/////////
+        //////////////////////////////////////////////+Dg4PAwMD////u7u4aGhq/v7//////////
+        //////////////////9ycnJBQUH5+fn/////////////////////////////////////////////////
+        ///////////////////////9/f1QUFBgYGD////////////////////////////////6+vpJSUmzs7P/
+        //////////////////////////////////////////////////////////////////////+8vLw4ODj0
+        9PT///////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Portable AMBE Server Configuration</value>

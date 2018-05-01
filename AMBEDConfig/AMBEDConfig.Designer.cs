@@ -33,6 +33,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AMBEDConfig));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.countryCode = new System.Windows.Forms.TextBox();
+            this.label_countryCode = new System.Windows.Forms.Label();
             this.label_wifiType = new System.Windows.Forms.Label();
             this.wifiType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -91,6 +93,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.countryCode);
+            this.groupBox1.Controls.Add(this.label_countryCode);
             this.groupBox1.Controls.Add(this.label_wifiType);
             this.groupBox1.Controls.Add(this.wifiType);
             this.groupBox1.Controls.Add(this.label11);
@@ -119,6 +123,16 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // countryCode
+            // 
+            resources.ApplyResources(this.countryCode, "countryCode");
+            this.countryCode.Name = "countryCode";
+            // 
+            // label_countryCode
+            // 
+            resources.ApplyResources(this.label_countryCode, "label_countryCode");
+            this.label_countryCode.Name = "label_countryCode";
+            // 
             // label_wifiType
             // 
             resources.ApplyResources(this.label_wifiType, "label_wifiType");
@@ -126,6 +140,7 @@
             // 
             // wifiType
             // 
+            this.wifiType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.wifiType.FormattingEnabled = true;
             this.wifiType.Items.AddRange(new object[] {
             resources.GetString("wifiType.Items"),
@@ -476,7 +491,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AMBEDConfig";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.AMBEDConfig_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AMBEDConfig_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -542,6 +557,8 @@
         private System.Windows.Forms.Label label_ambePort;
         private System.Windows.Forms.Label label_sshPort;
         private System.Windows.Forms.CheckBox checkBox_useUSB;
+        private TextBox countryCode;
+        private Label label_countryCode;
     }
 }
 

@@ -166,4 +166,28 @@
   <data name="tag_ssid" xml:space="preserve">
     <value>WiFiのSSIDを入力してください</value>
   </data>
+  <data name="error_routerAddr2" xml:space="preserve">
+    <value>ルーターアドレスの値が不正です</value>
+  </data>
+  <data name="error_routerAddr4" xml:space="preserve">
+    <value>USB LANルーターアドレスの値が不正です</value>
+  </data>
+  <data name="error_subnet16" xml:space="preserve">
+    <value>サブネットマスクは16以上の値です</value>
+  </data>
+  <data name="error_subnet24" xml:space="preserve">
+    <value>サブネットマスクは24以上の値です</value>
+  </data>
+  <data name="error_subnet8" xml:space="preserve">
+    <value>サブネットマスクは8以上の値です</value>
+  </data>
+  <data name="fld_ipAddr1" xml:space="preserve">
+    <value>固定IPアドレス</value>
+  </data>
+  <data name="fld_routerAddr2" xml:space="preserve">
+    <value>ルーターIPアドレス</value>
+  </data>
+  <data name="label_countryCode" xml:space="preserve">
+    <value>国コード(&amp;C)</value>
+  </data>
 </root>

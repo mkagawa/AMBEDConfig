@@ -17,14 +17,40 @@ namespace AMBEDConfig
 {
     public partial class AMBEDConfig : Form
     {
-        private int sshPortNo { get; set; }
-        private int ambePortNo { get; set; }
+        //private int sshPortNo { get; set; }
+        //private int ambePortNo { get; set; }
         private bool usbEnabled { get; set; }
+        private ResourceManager resources { get; set; }
+        private static String cwd = Directory.GetCurrentDirectory();
+
+        class _myObj
+        {
+            public _myObj(String[] rex,
+                Action<Dictionary<int, Match>, AMBEDConfig> readFunc,
+                Func<Match, String, AMBEDConfig, String> writeFunc)
+            {
+                regExs = rex;
+                myReadFunc = readFunc;
+                myWriteFunc = writeFunc;
+            }
+            public String[] regExs { get; set; }
+            public Action<Dictionary<int, Match>, AMBEDConfig> myReadFunc { get; set; }
+            public Func<Match, String, AMBEDConfig, String> myWriteFunc { get; set; }
+        }
+
+        class IPAddrException : Exception
+        {
+            public IPAddrException(String msg)
+                : base(msg)
+            {
+
+            }
+        }
 
         public AMBEDConfig()
         {
             InitializeComponent();
-            ApplyCulture(new CultureInfo("ja-JP"));
+            ApplyCulture(null);
         }
 
         private void ApplyCulture(CultureInfo culture)
@@ -46,7 +72,7 @@ namespace AMBEDConfig
             {
                 rscName = manifests.First(nm => String.Format(name, "en") == nm);
             }
-            var resources = new ResourceManager(rscName.Replace(".resources",""), typeof(AMBEDConfig).Assembly);
+            this.resources = new ResourceManager(rscName.Replace(".resources", ""), typeof(AMBEDConfig).Assembly);
 
             // Create a resource manager for this Form
             // and determine its fields via reflection.
@@ -87,14 +113,14 @@ namespace AMBEDConfig
                 if (fieldInfos[index].FieldType.GetProperty("Tag") != null)
                 {
                     text = resources.GetString("tag_" + fieldInfos[index].Name);
-                    if (text != null)
+                    if (text == null)
                     {
                         fieldInfos[index].FieldType.InvokeMember("Tag",
                             BindingFlags.SetProperty, null,
                             fieldInfos[index].GetValue(this), new object[] { text });
                     }
                 }
- 
+
             }
 
             // Call ResumeLayout for Form and all fields
@@ -113,7 +139,7 @@ namespace AMBEDConfig
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-        
+
         /// <summary>
         /// Read AMBE server related configuration files
         /// </summary>
@@ -122,13 +148,12 @@ namespace AMBEDConfig
         private Dictionary<int, Match> readConfig(String fileName)
         {
             var mch = new Dictionary<int, Match>();
-            var cwd = Directory.GetCurrentDirectory();
             var rex = fileToRegEx[fileName].regExs.Select(t => new Regex(t));
-            using (var sshFile = new StreamReader(cwd + @"\" + fileName))
+            using (var _file = new StreamReader(cwd + @"\" + fileName))
             {
                 String line;
                 int lineCnt = 0;
-                while ((line = sshFile.ReadLine()) != null)
+                while ((line = _file.ReadLine()) != null)
                 {
                     lineCnt++;
                     var m = rex.Select(rx =>
@@ -145,34 +170,97 @@ namespace AMBEDConfig
             return mch;
         }
 
-        private void writeConfig(String fileName, Dictionary<String, String> valuePairs, String[] regEx)
+        private void writeConfig(String fileName)
         {
-            var r = readConfig(fileName);
-        }
-
-        class _myObj
-        {
-            public _myObj(String[] rex, Action<Dictionary<int, Match>, AMBEDConfig> func)
+            //var mch = new Dictionary<int, Match>();
+            var rex = fileToRegEx[fileName].regExs.Select(t => new Regex(t));
+            var rFileName = cwd + @"\" + fileName;
+            int modCnt = 0;
+            this.curIf = "";
+            var tmpStream = new MemoryStream();
+            using (TextWriter _wfile = new StreamWriter(tmpStream, Encoding.UTF8))
             {
-                this.regExs = rex;
-                this.myFunc = func;
+                _wfile.NewLine = "\n";
+                using (var _rfile = new StreamReader(rFileName))
+                {
+                    String line;
+                    while ((line = _rfile.ReadLine()) != null)
+                    {
+                        var m = rex.Select(rx =>
+                        {
+                            var mx = rx.Matches(line);
+                            return mx.Count > 0 ? mx[0] : null;
+                        });
+                        if (m.Any(x => x != null))
+                        {
+                            var mch = m.First(x => x != null);
+                            //Transform Line
+                            var ret = fileToRegEx[fileName].myWriteFunc(mch, line, this);
+                            if (ret != null)
+                            {
+                                line = ret;
+                                modCnt++;
+                            }
+                        }
+                        _wfile.WriteLine(line);
+                    }
+                }
+                _wfile.Flush();
+
+                //any changes detected then overwrite original file
+                if (modCnt > 0)
+                {
+                    const int chunkSize = 1024; // read the file by chunks of 1KB
+                    tmpStream.Seek(0, SeekOrigin.Begin);
+                    using (var _rfile2 = new StreamReader(tmpStream))
+                    {
+                        int bytesRead;
+                        var buffer = new char[chunkSize];
+                        using (var _wfile2 = new StreamWriter(rFileName))
+                        {
+                            while ((bytesRead = _rfile2.Read(buffer, 0, buffer.Length)) > 0)
+                            {
+                                _wfile2.Write(buffer, 0, bytesRead);
+                            }
+                        }
+                    }
+                }
             }
-            public String[] regExs { get; set; }
-            public Action<Dictionary<int, Match>, AMBEDConfig> myFunc { get; set; }
         }
 
+        String curIf = "";
         Dictionary<String, _myObj> fileToRegEx = new Dictionary<string, _myObj>() {
-            {"sshd_config.txt", new _myObj(new String[] { @"^\s*Port\s+(\d+)\s*$" },(r,ctx) => {
-                ctx.sshPortNo = Int32.Parse(r[0].Groups[1].Value);
-                ctx.sshPort.Text = ctx.sshPortNo.ToString();
+            {"sshd_config.txt",
+                new _myObj(new String[] { @"^\s*(Port)\s+(\d+)\s*$" }, (r,ctx) => { //read function
+                    ctx.sshPort.Text = r.First().Value.Groups[2].Value;
+            }, (r,line,ctx) => { //write function
+                var ret = line.Substring(0, r.Groups[2].Index);
+                ret += ctx.sshPort.Text;
+                ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
+                if (line != ret) { 
+                    return ret;
+                }
+                return null; //no change for this line
             })},
-            {"AMBEDCMD.txt", new _myObj(new String[] { @"^.*?\s-p\s*(\d+)\s+.*$" }, (r,ctx) => {
-                ctx.ambePortNo = Int32.Parse(r[0].Groups[1].Value);
-                ctx.ambePort.Text = ctx.ambePortNo.ToString();
+            {"AMBEDCMD.txt",
+                new _myObj(new String[] {
+                    @"^(.*?)\s-p\s*(\d+)\s+.*$" },
+                (r,ctx) => {
+                    ctx.ambePort.Text = r.First().Value.Groups[2].Value;
+            },(r,line,ctx)=>{
+                var ret = line.Substring(0, r.Groups[2].Index);
+                ret += ctx.ambePort.Text;
+                ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
+                if (line != ret) { 
+                    return ret;
+                }
+                return null; //no change for this line
             })},
-            {"wpa_supplicant.txt", new _myObj(new String[] { 
-                    "^\\s*(ssid|psk)=\"(.+?)\"\\s*$", "^\\s*(key_mgmt)=\"?(.+?)\"?\\s*$"
-            }, (r,ctx) => {
+            {"wpa_supplicant.txt",
+                new _myObj(new String[] { 
+                    "^\\s*(ssid|psk)=\"(.+?)\"\\s*$", 
+                    "^\\s*(key_mgmt|country)=\"?(.+?)\"?\\s*$" },
+                (r, ctx) => {
                 foreach (var mr in r)
                 {
                     var mx = mr.Value;
@@ -180,7 +268,11 @@ namespace AMBEDConfig
 
                     var k = mx.Groups[1].Value;
                     var v = mx.Groups[2].Value;
-                    if (k == "ssid")
+                    if (k == "country")
+                    {
+                        ctx.countryCode.Text = v.ToUpper();
+                    }
+                    else if (k == "ssid")
                     {
                         ctx.ssid.Text = v;
                     }
@@ -193,13 +285,37 @@ namespace AMBEDConfig
                         ctx.wifiType.Text = v;
                     }
                 }
+            }, (r, line, ctx) => { //write func
+                var ret = line.Substring(0, r.Groups[2].Index);
+                var k = r.Groups[1].Value;
+                if (k == "ssid") 
+                {
+                    ret += ctx.ssid.Text;
+                }
+                else if (k == "country")
+                {
+                    ret += ctx.countryCode.Text;
+                }
+                else if (k == "psk")
+                {
+                    ret += ctx.keyPhrase.Text;
+                }
+                else if(k == "key_mgmt") 
+                {
+                    ret += ctx.wifiType.Text;
+                }
+                ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
+                if (line != ret) {
+                    return ret;
+                }
+                return null; //no change for this line
             })},
             {"dhcpcd.txt", new _myObj(new String[] { 
                     "^\\s*static\\s+(ip_address|routers|domain_name_servers)=(.+?)\\s*$",
                     "^\\s*(_enabled) (\\d)\\s*$",
-                    "^\\s*(interface) (\\w+)\\s*$"
-                }, (r, ctx) => {
-                var curIf = "";
+                    "^\\s*(interface) (\\w+)\\s*$" },
+                (r, ctx) => {
+                ctx.curIf = "";
                 foreach (var mr in r)
                 {
                     var mx = mr.Value;
@@ -213,14 +329,14 @@ namespace AMBEDConfig
                     }
                     else if (k == "interface")
                     {
-                        curIf = v;
+                        ctx.curIf = v;
                     }
                     else if (k == "ip_address")
                     {
                         var parts = v.Split('/');
                         var ipaddr = IPAddress.Parse(parts[0]);
                         var addrs = ipaddr.GetAddressBytes();
-                        if (curIf == "wlan0")
+                        if (ctx.curIf == "wlan0")
                         {
                             ctx.ipAddr1_1.Text = addrs[0].ToString();
                             ctx.ipAddr1_2.Text = addrs[1].ToString();
@@ -241,7 +357,7 @@ namespace AMBEDConfig
                     {
                         var ipaddr = IPAddress.Parse(v);
                         var addrs = ipaddr.GetAddressBytes();
-                        if (curIf == "wlan0")
+                        if (ctx.curIf == "wlan0")
                         {
                             ctx.ipAddr2_1.Text = addrs[0].ToString();
                             ctx.ipAddr2_2.Text = addrs[1].ToString();
@@ -258,34 +374,97 @@ namespace AMBEDConfig
                     }
                     else if (k == "domain_name_servers")
                     {
-                        //this.wifiType.Text = v;
+                        //Nothing to do
                     }
                 }
+            }, (r, line, ctx) => {
+                var ret = line.Substring(0, r.Groups[2].Index);
+                var k = r.Groups[1].Value;
+                var v = r.Groups[2].Value;
+                if (k == "_enabled")
+                {
+                    ret += ctx.checkBox_useUSB.Checked ? "1" : "0";
+                }
+                else if (k == "interface")
+                {
+                    ctx.curIf = v;
+                    return null;
+                }
+                else if (k == "ip_address")
+                {
+                    if (ctx.curIf == "wlan0")
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}/{4}",
+                            ctx.ipAddr1_1.Text,
+                            ctx.ipAddr1_2.Text,
+                            ctx.ipAddr1_3.Text,
+                            ctx.ipAddr1_4.Text,
+                            ctx.ipAddr1_5.Text);
+                    }
+                    else
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}/{4}",
+                            ctx.ipAddr3_1.Text,
+                            ctx.ipAddr3_2.Text,
+                            ctx.ipAddr3_3.Text,
+                            ctx.ipAddr3_4.Text,
+                            ctx.ipAddr3_5.Text);
+                    }
+                }
+                else if (k == "routers")
+                {
+                    if (ctx.curIf == "wlan0")
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}",
+                            ctx.ipAddr2_1.Text,
+                            ctx.ipAddr2_2.Text,
+                            ctx.ipAddr2_3.Text,
+                            ctx.ipAddr2_4.Text);
+                    }
+                    else
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}",
+                            ctx.ipAddr4_1.Text,
+                            ctx.ipAddr4_2.Text,
+                            ctx.ipAddr4_3.Text,
+                            ctx.ipAddr4_4.Text);
+                    }
+                }
+                else if (k == "domain_name_servers")
+                {
+                    //As same value as router
+                    if (ctx.curIf == "wlan0")
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}",
+                            ctx.ipAddr2_1.Text,
+                            ctx.ipAddr2_2.Text,
+                            ctx.ipAddr2_3.Text,
+                            ctx.ipAddr2_4.Text);
+                    }
+                    else
+                    {
+                        ret += String.Format("{0}.{1}.{2}.{3}",
+                            ctx.ipAddr4_1.Text,
+                            ctx.ipAddr4_2.Text,
+                            ctx.ipAddr4_3.Text,
+                            ctx.ipAddr4_4.Text);
+                    }
+                }
+                ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
+                if (line != ret) {
+                    return ret;
+                }
+                return null; //no change for this line
             })}
         };
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AMBEDConfig_Load(object sender, EventArgs e)
         {
-            //var rm = new resourcemanager("ambedconfig.resources-ja-jp", typeof(ambedconfig).assembly);
-            //string greeting = string.format("the current culture is {0}.\n{1}",
-            //                                thread.currentthread.currentuiculture.name,
-            //                                rm.getstring("label30"));
-            //var assembly = typeof(AMBEDConfig).Assembly;
-            //foreach (var resourceName in assembly.GetManifestResourceNames())
-            //    System.Console.WriteLine(resourceName);
-            //foreach (var resourceName in assembly.GetManifestResourceNames())
-            //{
-            //    using (var stream = assembly.GetManifestResourceStream(resourceName))
-            //    {
-            //        // Do something with stream
-            //    }
-            //}
-
             foreach (var c in fileToRegEx)
             {
                 try
                 {
-                    c.Value.myFunc(readConfig(c.Key), this);
+                    c.Value.myReadFunc(readConfig(c.Key), this);
                 }
                 catch (Exception ex)
                 {
@@ -311,9 +490,74 @@ namespace AMBEDConfig
             this.Close();
         }
 
+        private void validateRouterAddr(String fieldName, String[] elements, IPAddress addr, int subnet)
+        {
+            var rAddr = new IPAddress(elements.Select(e => Byte.Parse(e)).ToArray());
+            var mask = (1 << subnet) - 1;
+            var net1 = rAddr.Address & mask;
+            var net2 = addr.Address & mask;
+            if (net1 != net2)
+            {
+                throw new IPAddrException(resources.GetString("error_" + fieldName));
+            }
+        }
+
+        private IPAddress validateIpAddr(String fieldName, String[] elements)
+        {
+            var _fieldName = resources.GetString(fieldName);
+            var bytes = elements.Select(e => Byte.Parse(e)).Take(4).ToArray();
+            if (bytes[0] >= 1 && bytes[0] <= 126)
+            {
+                //class A - subnet >= 8
+                if (Byte.Parse(elements[4]) < 8)
+                {
+                    throw new IPAddrException(resources.GetString("error_subnet8"));
+                }
+            }
+            else if (bytes[0] >= 128 && bytes[0] <= 191)
+            {
+                //class B - subnet >= 16
+                if (Byte.Parse(elements[4]) < 16)
+                {
+                    throw new IPAddrException(resources.GetString("error_subnet16"));
+                }
+            }
+            else if (bytes[0] >= 192 && bytes[0] <= 223)
+            {
+                //class C - subnet >= 24
+                if (Byte.Parse(elements[4]) < 24)
+                {
+                    throw new IPAddrException(resources.GetString("error_subnet24"));
+                }
+            }
+            return new IPAddress(bytes);
+        }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var addr1 = validateIpAddr("ipAddr1", new String[] { ipAddr1_1.Text, ipAddr1_2.Text, ipAddr1_3.Text, ipAddr1_4.Text, ipAddr1_5.Text });
+                validateRouterAddr("routerAddr2", new String[] { ipAddr2_1.Text, ipAddr2_2.Text, ipAddr2_3.Text, ipAddr2_4.Text }, addr1, Int16.Parse(ipAddr1_5.Text));
+            }
+            catch (IPAddrException ex)
+            {
+                var result = MessageBox.Show(this, ex.Message, "Error");
+                return;
+            }
 
+            foreach (var c in fileToRegEx)
+            {
+                try
+                {
+                    writeConfig(c.Key);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+            this.Close();
         }
 
         private void numericField65536_TextChanged(object sender, EventArgs e)
@@ -382,13 +626,13 @@ namespace AMBEDConfig
             bool inside = rect.Contains(mouseClientPos);
             if (inside)
             {
-                Help.ShowPopup(ctrl, ctrl.Tag.ToString(), mouseScreenPos);
+                Help.ShowPopup(ctrl, (String)ctrl.Tag, mouseScreenPos);
             }
             else
             {
                 Point ctrlClietnPos = new Point(ctrl.Size.Width / 2, ctrl.Size.Height);
                 Point ctrlScreenPos = ctrl.PointToScreen(ctrlClietnPos);
-                Help.ShowPopup(ctrl, ctrl.Tag.ToString(), ctrlScreenPos);
+                Help.ShowPopup(ctrl, (String)ctrl.Tag, ctrlScreenPos);
             }
         }
 
