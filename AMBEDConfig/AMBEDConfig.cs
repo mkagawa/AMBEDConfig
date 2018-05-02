@@ -316,6 +316,7 @@ namespace AMBEDConfig
                     "^\\s*(interface) (\\w+)\\s*$" },
                 (r, ctx) => {
                 ctx.curIf = "";
+                ctx.usbEnabled = true;
                 foreach (var mr in r)
                 {
                     var mx = mr.Value;
@@ -323,14 +324,14 @@ namespace AMBEDConfig
 
                     var k = mx.Groups[1].Value;
                     var v = mx.Groups[2].Value;
-                    if (k == "_enabled")
-                    {
-                        ctx.usbEnabled = v == "1";
-                    }
-                    else if (k == "interface")
+                    if (k == "interface")
                     {
                         ctx.curIf = v;
                     }
+                    //else if (k == "_enabled")
+                    //{
+                    //    ctx.usbEnabled = v == "1";
+                    //}
                     else if (k == "ip_address")
                     {
                         var parts = v.Split('/');
@@ -642,6 +643,15 @@ namespace AMBEDConfig
             {
                 this.Close();
             }
+        }
+
+        private void labelAbout_Click(object sender, EventArgs e)
+        {
+            Control ctrl = (Control)sender;
+            Point mouseScreenPos = Control.MousePosition;
+            Point mouseClientPos = ctrl.PointToClient(mouseScreenPos);
+            Rectangle rect = ctrl.ClientRectangle;
+            Help.ShowPopup(ctrl, "Copyright (c) 2018 by XRFリフレクタ同好会\n\nTest\n", mouseScreenPos);
         }
     }
 }

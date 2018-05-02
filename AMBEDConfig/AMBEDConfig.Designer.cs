@@ -86,6 +86,9 @@
             this.label_sshPort = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.labe_about = new System.Windows.Forms.Label();
+            this.label_prodName = new System.Windows.Forms.Label();
+            this.label_version = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -477,10 +480,33 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // labe_about
+            // 
+            this.labe_about.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.labe_about, "labe_about");
+            this.labe_about.Name = "labe_about";
+            this.labe_about.Click += new System.EventHandler(this.labelAbout_Click);
+            // 
+            // label_prodName
+            // 
+            this.label_prodName.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_prodName, "label_prodName");
+            this.label_prodName.Name = "label_prodName";
+            this.label_prodName.Click += new System.EventHandler(this.labelAbout_Click);
+            // 
+            // label_version
+            // 
+            this.label_version.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_version, "label_version");
+            this.label_version.Name = "label_version";
+            // 
             // AMBEDConfig
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label_version);
+            this.Controls.Add(this.label_prodName);
+            this.Controls.Add(this.labe_about);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -559,6 +585,9 @@
         private System.Windows.Forms.CheckBox checkBox_useUSB;
         private TextBox countryCode;
         private Label label_countryCode;
+        private Label labe_about;
+        private Label label_prodName;
+        private Label label_version;
     }
 }
 
