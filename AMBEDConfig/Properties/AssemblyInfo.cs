@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Masahito Kagawa (NW6UP)")]
 [assembly: AssemblyProduct("AMBEDConfig")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright ©  2018 by Masahito Kagawa NW6UP")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
