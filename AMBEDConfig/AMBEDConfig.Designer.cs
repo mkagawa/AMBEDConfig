@@ -109,7 +109,7 @@ namespace AMBEDConfig
             this.label_sshPort = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.labe_about = new System.Windows.Forms.Label();
+            this.label_about = new System.Windows.Forms.Label();
             this.label_prodName = new System.Windows.Forms.Label();
             this.label_version = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -503,12 +503,12 @@ namespace AMBEDConfig
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // labe_about
+            // label_about
             // 
-            this.labe_about.Cursor = System.Windows.Forms.Cursors.Help;
-            resources.ApplyResources(this.labe_about, "labe_about");
-            this.labe_about.Name = "labe_about";
-            this.labe_about.Click += new System.EventHandler(this.labelAbout_Click);
+            this.label_about.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_about, "label_about");
+            this.label_about.Name = "label_about";
+            this.label_about.Click += new System.EventHandler(this.labelAbout_Click);
             // 
             // label_prodName
             // 
@@ -529,13 +529,12 @@ namespace AMBEDConfig
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label_version);
             this.Controls.Add(this.label_prodName);
-            this.Controls.Add(this.labe_about);
+            this.Controls.Add(this.label_about);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
-            this.HelpButton = true;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -608,7 +607,7 @@ namespace AMBEDConfig
         private System.Windows.Forms.CheckBox checkBox_useUSB;
         private TextBox countryCode;
         private Label label_countryCode;
-        private Label labe_about;
+        private Label label_about;
         private Label label_prodName;
         private Label label_version;
     }

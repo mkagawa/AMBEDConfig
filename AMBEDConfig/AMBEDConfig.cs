@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Diagnostics;
 using System.Resources;
 using System.Threading;
 using System.Globalization;
@@ -40,39 +41,16 @@ namespace AMBEDConfig
 {
     public partial class AMBEDConfig : Form
     {
-        //private int sshPortNo { get; set; }
-        //private int ambePortNo { get; set; }
         private bool usbEnabled { get; set; }
         private ResourceManager resources { get; set; }
         private static String cwd = Directory.GetCurrentDirectory();
-
-        class _myObj
-        {
-            public _myObj(String[] rex,
-                Action<Dictionary<int, Match>, AMBEDConfig> readFunc,
-                Func<Match, String, AMBEDConfig, String> writeFunc)
-            {
-                regExs = rex;
-                myReadFunc = readFunc;
-                myWriteFunc = writeFunc;
-            }
-            public String[] regExs { get; set; }
-            public Action<Dictionary<int, Match>, AMBEDConfig> myReadFunc { get; set; }
-            public Func<Match, String, AMBEDConfig, String> myWriteFunc { get; set; }
-        }
-
-        class IPAddrException : Exception
-        {
-            public IPAddrException(String msg)
-                : base(msg)
-            {
-
-            }
-        }
+        private static String prodVersion = "";
 
         public AMBEDConfig()
         {
-            InitializeComponent();
+            var fvi = FileVersionInfo.GetVersionInfo(typeof(AMBEDConfig).Assembly.Location);
+            prodVersion = fvi.FileVersion; InitializeComponent();
+
             ApplyCulture(null);
         }
 
@@ -126,6 +104,12 @@ namespace AMBEDConfig
                 if (fieldInfos[index].FieldType.GetProperty("Text", typeof(String)) != null)
                 {
                     text = resources.GetString(fieldInfos[index].Name);
+                    //Special handling...
+                    if (fieldInfos[index].Name == "label_version")
+                    {
+                        text = String.Format(text, prodVersion);
+                    }
+
                     if (text != null)
                     {
                         fieldInfos[index].FieldType.InvokeMember("Text",
@@ -518,6 +502,8 @@ namespace AMBEDConfig
         {
             var rAddr = new IPAddress(elements.Select(e => Byte.Parse(e)).ToArray());
             var mask = (1 << subnet) - 1;
+//disable "depricated" error
+#pragma warning disable 0618
             var net1 = rAddr.Address & mask;
             var net2 = addr.Address & mask;
             if (net1 != net2)
@@ -674,7 +660,36 @@ namespace AMBEDConfig
             Point mouseScreenPos = Control.MousePosition;
             Point mouseClientPos = ctrl.PointToClient(mouseScreenPos);
             Rectangle rect = ctrl.ClientRectangle;
-            Help.ShowPopup(ctrl, "Copyright (c) 2018 by XRFリフレクタ同好会\n\nTest\n", mouseScreenPos);
+
+
+            String text = resources.GetString("text_aboutUs");
+            Help.ShowPopup(ctrl, text, mouseScreenPos);
         }
     }
+    //Helper class
+    internal class _myObj
+    {
+        public _myObj(String[] rex,
+            Action<Dictionary<int, Match>, AMBEDConfig> readFunc,
+            Func<Match, String, AMBEDConfig, String> writeFunc)
+        {
+            regExs = rex;
+            myReadFunc = readFunc;
+            myWriteFunc = writeFunc;
+        }
+        public String[] regExs { get; set; }
+        public Action<Dictionary<int, Match>, AMBEDConfig> myReadFunc { get; set; }
+        public Func<Match, String, AMBEDConfig, String> myWriteFunc { get; set; }
+    }
+
+    //Internal Exception
+    internal class IPAddrException : Exception
+    {
+        public IPAddrException(String msg)
+            : base(msg)
+        {
+
+        }
+    }
+
 }

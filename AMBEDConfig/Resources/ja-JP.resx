@@ -128,7 +128,7 @@
     <comment>Program title</comment>
   </data>
   <data name="label_ipAddr1" xml:space="preserve">
-    <value>IPアドレス(&amp;I)</value>
+    <value>固定IPアドレス(&amp;I)</value>
   </data>
   <data name="label_routerAddr2" xml:space="preserve">
     <value>ルーターアドレス(&amp;R)</value>
@@ -140,7 +140,7 @@
     <value>WiFi設定</value>
   </data>
   <data name="groupBox2" xml:space="preserve">
-    <value>USB LAN 設定 (USB LAN アダプタを使用する場合のみ)</value>
+    <value>有線 LAN 設定 (USB LAN アダプタを使用する場合のみ)</value>
   </data>
   <data name="groupBox3" xml:space="preserve">
     <value>その他の設定</value>
@@ -149,7 +149,7 @@
     <value>AMBEポート番号(&amp;A)</value>
   </data>
   <data name="label_ipAddr3" xml:space="preserve">
-    <value>IPアドレス(&amp;P)</value>
+    <value>固定IPアドレス(&amp;P)</value>
   </data>
   <data name="label_routerAddr4" xml:space="preserve">
     <value>ルーターアドレス(&amp;O)</value>
@@ -189,5 +189,20 @@
   </data>
   <data name="label_countryCode" xml:space="preserve">
     <value>国コード(&amp;C)</value>
+  </data>
+  <data name="label_about" xml:space="preserve">
+    <value>XRFリフレクター同好会 Copyright (c) 2018</value>
+  </data>
+  <data name="label_prodName" xml:space="preserve">
+    <value>ポータブル AMBEサーバー</value>
+  </data>
+  <data name="label_version" xml:space="preserve">
+    <value>(設定ソフトウェア V {0})</value>
+  </data>
+  <data name="text_aboutUs" xml:space="preserve">
+    <value>Copyright (c) 2018 by XRFリフレクタ同好会
+
+JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
+JA4DQX, JA4CFO, JA5NUU, NW6UP (順不同)</value>
   </data>
 </root>

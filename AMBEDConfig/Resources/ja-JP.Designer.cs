@@ -142,7 +142,7 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to USB LAN 設定 (USB LAN アダプタを使用する場合のみ).
+        ///   Looks up a localized string similar to 有線 LAN 設定 (USB LAN アダプタを使用する場合のみ).
         /// </summary>
         internal static string groupBox2 {
             get {
@@ -156,6 +156,15 @@ namespace AMBEDConfig.Resources {
         internal static string groupBox3 {
             get {
                 return ResourceManager.GetString("groupBox3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XRFリフレクター同好会 Copyright (c) 2018.
+        /// </summary>
+        internal static string label_about {
+            get {
+                return ResourceManager.GetString("label_about", resourceCulture);
             }
         }
         
@@ -178,7 +187,7 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IPアドレス(&amp;I).
+        ///   Looks up a localized string similar to 固定IPアドレス(&amp;I).
         /// </summary>
         internal static string label_ipAddr1 {
             get {
@@ -187,7 +196,7 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IPアドレス(&amp;P).
+        ///   Looks up a localized string similar to 固定IPアドレス(&amp;P).
         /// </summary>
         internal static string label_ipAddr3 {
             get {
@@ -201,6 +210,15 @@ namespace AMBEDConfig.Resources {
         internal static string label_keyPhrase {
             get {
                 return ResourceManager.GetString("label_keyPhrase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ポータブル AMBEサーバー.
+        /// </summary>
+        internal static string label_prodName {
+            get {
+                return ResourceManager.GetString("label_prodName", resourceCulture);
             }
         }
         
@@ -241,6 +259,15 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (設定ソフトウェア V {0}).
+        /// </summary>
+        internal static string label_version {
+            get {
+                return ResourceManager.GetString("label_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ポータブル AMBEサーバー 設定.
         /// </summary>
         internal static string programTitle {
@@ -273,6 +300,18 @@ namespace AMBEDConfig.Resources {
         internal static string tag_ssid {
             get {
                 return ResourceManager.GetString("tag_ssid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copyright (c) 2018 by XRFリフレクタ同好会
+        ///
+        ///JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
+        ///JA4DQX, JA4CFO, JA5NUU, NW6UP (順不同).
+        /// </summary>
+        internal static string text_aboutUs {
+            get {
+                return ResourceManager.GetString("text_aboutUs", resourceCulture);
             }
         }
     }
