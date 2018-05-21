@@ -107,8 +107,8 @@ namespace AMBEDConfig
             this.sshPort = new System.Windows.Forms.TextBox();
             this.label_ambePort = new System.Windows.Forms.Label();
             this.label_sshPort = new System.Windows.Forms.Label();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.button_OK = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
             this.label_about = new System.Windows.Forms.Label();
             this.label_prodName = new System.Windows.Forms.Label();
             this.label_version = new System.Windows.Forms.Label();
@@ -489,19 +489,19 @@ namespace AMBEDConfig
             resources.ApplyResources(this.label_sshPort, "label_sshPort");
             this.label_sshPort.Name = "label_sshPort";
             // 
-            // buttonOK
+            // button_OK
             // 
-            resources.ApplyResources(this.buttonOK, "buttonOK");
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            resources.ApplyResources(this.button_OK, "button_OK");
+            this.button_OK.Name = "button_OK";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // buttonCancel
+            // button_cancel
             // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            resources.ApplyResources(this.button_cancel, "button_cancel");
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // label_about
             // 
@@ -533,8 +533,8 @@ namespace AMBEDConfig
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.button_OK);
+            this.Controls.Add(this.button_cancel);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -597,8 +597,8 @@ namespace AMBEDConfig
         private System.Windows.Forms.TextBox ipAddr3_1;
         private System.Windows.Forms.Label label_routerAddr4;
         private System.Windows.Forms.Label label_ipAddr3;
-        private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button button_OK;
+        private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox ambePort;
         private System.Windows.Forms.TextBox sshPort;

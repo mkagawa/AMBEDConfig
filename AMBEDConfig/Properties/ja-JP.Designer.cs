@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AMBEDConfig.Resources {
+namespace AMBEDConfig.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AMBEDConfig.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AMBEDConfig.Resources.ja-JP", typeof(ja_JP).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AMBEDConfig.Properties.ja-JP", typeof(ja_JP).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,24 @@ namespace AMBEDConfig.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to キャンセル.
+        /// </summary>
+        internal static string button_cancel {
+            get {
+                return ResourceManager.GetString("button_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string button_OK {
+            get {
+                return ResourceManager.GetString("button_OK", resourceCulture);
             }
         }
         
@@ -268,6 +286,15 @@ namespace AMBEDConfig.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WiFiセキュリティ(&amp;W).
+        /// </summary>
+        internal static string label_wifiType {
+            get {
+                return ResourceManager.GetString("label_wifiType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ポータブル AMBEサーバー 設定.
         /// </summary>
         internal static string programTitle {
@@ -307,7 +334,7 @@ namespace AMBEDConfig.Resources {
         ///   Looks up a localized string similar to Copyright (c) 2018 by XRFリフレクタ同好会
         ///
         ///JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
-        ///JA4DQX, JA4CFO, JA5NUU, NW6UP (順不同).
+        ///JA4DQX, JA4CFO, NW6UP (順不同).
         /// </summary>
         internal static string text_aboutUs {
             get {

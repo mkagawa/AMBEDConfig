@@ -66,18 +66,14 @@ namespace AMBEDConfig
                 culture = Thread.CurrentThread.CurrentUICulture;
             }
 
-            var name = typeof(AMBEDConfig).Name + @".Resources.{0}.resources";
+            var name = typeof(AMBEDConfig).Name + @".Properties.{0}.resources";
             var manifests = typeof(AMBEDConfig).Assembly.GetManifestResourceNames();
             var rscName = manifests.FirstOrDefault(nm => String.Format(name, culture.Name) == nm);
             if (rscName == null)
             {
-                rscName = manifests.First(nm => String.Format(name, "en") == nm);
+                rscName = manifests.First(nm => nm.IndexOf("Properties.Resources.resources") > 0);
             }
             this.resources = new ResourceManager(rscName.Replace(".resources", ""), typeof(AMBEDConfig).Assembly);
-
-            // Create a resource manager for this Form
-            // and determine its fields via reflection.
-            //var resources = new ComponentResourceManager(this.GetType());
 
             FieldInfo[] fieldInfos = this.GetType().GetFields(BindingFlags.Instance |
                 BindingFlags.DeclaredOnly | BindingFlags.NonPublic);
@@ -104,6 +100,10 @@ namespace AMBEDConfig
                 if (fieldInfos[index].FieldType.GetProperty("Text", typeof(String)) != null)
                 {
                     text = resources.GetString(fieldInfos[index].Name);
+                    if (text == null)
+                    {
+                        continue;
+                    }
                     //Special handling...
                     if (fieldInfos[index].Name == "label_version")
                     {
@@ -127,7 +127,6 @@ namespace AMBEDConfig
                             fieldInfos[index].GetValue(this), new object[] { text });
                     }
                 }
-
             }
 
             // Call ResumeLayout for Form and all fields
@@ -481,7 +480,7 @@ namespace AMBEDConfig
             }
             usbLanEnable(this.usbEnabled);
             this.checkBox_useUSB.Checked = this.usbEnabled;
-            this.AcceptButton = this.buttonOK;
+            this.AcceptButton = this.button_OK;
         }
 
         private void numberFld_KeyPress(object sender, KeyPressEventArgs e)
