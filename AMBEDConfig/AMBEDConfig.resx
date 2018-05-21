@@ -1516,7 +1516,7 @@
     <value>28</value>
   </data>
   <data name="label_prodName.Text" xml:space="preserve">
-    <value>Potable AMBE Server</value>
+    <value>Portable AMBE Server</value>
   </data>
   <data name="&gt;&gt;label_prodName.Name" xml:space="preserve">
     <value>label_prodName</value>
