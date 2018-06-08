@@ -352,7 +352,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wifiの国コードを設定してください。\n日本国内ではJPを設定してください。.
+        ///   Looks up a localized string similar to WiFiの国コードを設定してください。\n日本国内ではJPを設定してください。.
         /// </summary>
         internal static string tip_countryCode {
             get {
@@ -361,7 +361,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 本機の固定IPアドレス (Wifi接続).
+        ///   Looks up a localized string similar to 本機の固定IPアドレス (WiFi接続).
         /// </summary>
         internal static string tip_ipAddr1_1 {
             get {
@@ -379,7 +379,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ルーターの固定IPアドレス (Wifi接続).
+        ///   Looks up a localized string similar to ルーターの固定IPアドレス (WiFi接続).
         /// </summary>
         internal static string tip_ipAddr2_1 {
             get {
@@ -415,7 +415,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wifi の暗号キー.
+        ///   Looks up a localized string similar to WiFi の暗号キー.
         /// </summary>
         internal static string tip_keyPhrase {
             get {
@@ -433,7 +433,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wifi の SSID (アクセスポイント名).
+        ///   Looks up a localized string similar to WiFi の SSID (アクセスポイント名).
         /// </summary>
         internal static string tip_ssid {
             get {

@@ -218,16 +218,16 @@ JA4DQX, JA4CFO, NW6UP (順不同)</value>
     <value>AMBEdのポート番号 (既定値: 2465)</value>
   </data>
   <data name="tip_countryCode" xml:space="preserve">
-    <value>Wifiの国コードを設定してください。\n日本国内ではJPを設定してください。</value>
+    <value>WiFiの国コードを設定してください。\n日本国内ではJPを設定してください。</value>
   </data>
   <data name="tip_ipAddr1_1" xml:space="preserve">
-    <value>本機の固定IPアドレス (Wifi接続)</value>
+    <value>本機の固定IPアドレス (WiFi接続)</value>
   </data>
   <data name="tip_ipAddr1_5" xml:space="preserve">
     <value>サブネットマスク（既定値: 24 ビット)</value>
   </data>
   <data name="tip_ipAddr2_1" xml:space="preserve">
-    <value>ルーターの固定IPアドレス (Wifi接続)</value>
+    <value>ルーターの固定IPアドレス (WiFi接続)</value>
   </data>
   <data name="tip_ipAddr3_1" xml:space="preserve">
     <value>本機の固定IPアドレス(USB LAN接続)</value>
@@ -239,12 +239,12 @@ JA4DQX, JA4CFO, NW6UP (順不同)</value>
     <value>ルーターの固定IPアドレス(USB LAN接続)</value>
   </data>
   <data name="tip_keyPhrase" xml:space="preserve">
-    <value>Wifi の暗号キー</value>
+    <value>WiFi の暗号キー</value>
   </data>
   <data name="tip_sshPort" xml:space="preserve">
     <value>SSHでアクセスするためのポート番号 (既定値: 20022)</value>
   </data>
   <data name="tip_ssid" xml:space="preserve">
-    <value>Wifi の SSID (アクセスポイント名)</value>
+    <value>WiFi の SSID (アクセスポイント名)</value>
   </data>
 </root>

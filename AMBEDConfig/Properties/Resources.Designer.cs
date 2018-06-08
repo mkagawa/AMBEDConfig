@@ -91,7 +91,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter country code for Wifi\nDouble click the field to set Windows default.
+        ///   Looks up a localized string similar to Enter country code for WiFi\nDouble click the field to set Windows default.
         /// </summary>
         internal static string tip_countryCode {
             get {
@@ -100,7 +100,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Static IP address for this box (Wifi).
+        ///   Looks up a localized string similar to Static IP address for this box (WiFi).
         /// </summary>
         internal static string tip_ipAddr1_1 {
             get {
@@ -118,7 +118,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Router&apos;s IP address (Wifi).
+        ///   Looks up a localized string similar to Router&apos;s IP address (WiFi).
         /// </summary>
         internal static string tip_ipAddr2_1 {
             get {
@@ -154,7 +154,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password (key phrase) for Wifi.
+        ///   Looks up a localized string similar to Password (key phrase) for WiFi.
         /// </summary>
         internal static string tip_keyPhrase {
             get {
@@ -172,7 +172,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SSID for Wifi.
+        ///   Looks up a localized string similar to SSID for WiFi.
         /// </summary>
         internal static string tip_ssid {
             get {
