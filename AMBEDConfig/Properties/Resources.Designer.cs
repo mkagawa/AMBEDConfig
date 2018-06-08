@@ -80,5 +80,104 @@ namespace AMBEDConfig.Properties {
                 return ResourceManager.GetString("text_aboutUs", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port number for AMBEd (default: 2465).
+        /// </summary>
+        internal static string tip_ambePort {
+            get {
+                return ResourceManager.GetString("tip_ambePort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter country code for Wifi\nDouble click the field to set Windows default.
+        /// </summary>
+        internal static string tip_countryCode {
+            get {
+                return ResourceManager.GetString("tip_countryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Static IP address for this box (Wifi).
+        /// </summary>
+        internal static string tip_ipAddr1_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subnet mask (default: 24 bit).
+        /// </summary>
+        internal static string tip_ipAddr1_5 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr1_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Router&apos;s IP address (Wifi).
+        /// </summary>
+        internal static string tip_ipAddr2_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr2_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Static IP address for this box (USB LAN).
+        /// </summary>
+        internal static string tip_ipAddr3_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr3_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subnet mask (default: 24 bit).
+        /// </summary>
+        internal static string tip_ipAddr3_5 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr3_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Router&apos;s IP address (USB LAN).
+        /// </summary>
+        internal static string tip_ipAddr4_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr4_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password (key phrase) for Wifi.
+        /// </summary>
+        internal static string tip_keyPhrase {
+            get {
+                return ResourceManager.GetString("tip_keyPhrase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port number for SSHd (default: 20022).
+        /// </summary>
+        internal static string tip_sshPort {
+            get {
+                return ResourceManager.GetString("tip_sshPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSID for Wifi.
+        /// </summary>
+        internal static string tip_ssid {
+            get {
+                return ResourceManager.GetString("tip_ssid", resourceCulture);
+            }
+        }
     }
 }

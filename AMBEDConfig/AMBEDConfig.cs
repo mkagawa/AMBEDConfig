@@ -45,16 +45,28 @@ namespace AMBEDConfig
         private ResourceManager resources { get; set; }
         private static String cwd = Directory.GetCurrentDirectory();
         private static String prodVersion = "";
+        private static String defaultCountry = "";
 
         public AMBEDConfig()
         {
             var fvi = FileVersionInfo.GetVersionInfo(typeof(AMBEDConfig).Assembly.Location);
             prodVersion = fvi.FileVersion; InitializeComponent();
 
-            ApplyCulture(null);
+            var culture = ApplyCulture(null);
+            var country = culture.Name.Split('-');
+            if (country.Length == 2)
+            {
+                defaultCountry = country[1];
+            }
+            else
+            {
+                defaultCountry = country[0];
+            }
+
+            button_OK.Enabled = keyPhrase.Text.Length > 0 && ssid.Text.Length > 0;
         }
 
-        private void ApplyCulture(CultureInfo culture)
+        private CultureInfo ApplyCulture(CultureInfo culture)
         {
             if (culture != null)
             {
@@ -144,6 +156,8 @@ namespace AMBEDConfig
             }
             this.ResumeLayout(false);
             this.PerformLayout();
+
+            return culture;
         }
 
         /// <summary>
@@ -467,6 +481,7 @@ namespace AMBEDConfig
 
         private void AMBEDConfig_Load(object sender, EventArgs e)
         {
+            bool bError = false;
             foreach (var c in fileToRegEx)
             {
                 try
@@ -475,8 +490,15 @@ namespace AMBEDConfig
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    bError = true;
+                    MessageBox.Show(this, ex.Message, "Error");
                 }
+            }
+
+            if (bError)
+            {
+                this.Close();
+                return;
             }
             usbLanEnable(this.usbEnabled);
             this.checkBox_useUSB.Checked = this.usbEnabled;
@@ -549,9 +571,9 @@ namespace AMBEDConfig
                 var addr1 = validateIpAddr("ipAddr1", new String[] { ipAddr1_1.Text, ipAddr1_2.Text, ipAddr1_3.Text, ipAddr1_4.Text, ipAddr1_5.Text });
                 validateRouterAddr("routerAddr2", new String[] { ipAddr2_1.Text, ipAddr2_2.Text, ipAddr2_3.Text, ipAddr2_4.Text }, addr1, Int16.Parse(ipAddr1_5.Text));
             }
-            catch (IPAddrException ex)
+            catch (Exception ex)
             {
-                var result = MessageBox.Show(this, ex.Message, "Error");
+                MessageBox.Show(this, ex.Message, "Error");
                 return;
             }
 
@@ -594,17 +616,20 @@ namespace AMBEDConfig
                 {
                     // If the number is negative, display it in Red.
                     currencyTextBox.ForeColor = Color.Red;
+                    button_OK.Enabled = false;
                 }
                 else
                 {
                     // If the number is not negative, display it in Black.
                     currencyTextBox.ForeColor = Color.Black;
+                    button_OK.Enabled = true;
                 }
             }
             catch
             {
                 // If there is an error, display the text using the system colors.
                 currencyTextBox.ForeColor = SystemColors.ControlText;
+                button_OK.Enabled = false;
             }
         }
 
@@ -663,6 +688,36 @@ namespace AMBEDConfig
 
             String text = resources.GetString("text_aboutUs");
             Help.ShowPopup(ctrl, text, mouseScreenPos);
+        }
+
+        private void keyPhrase_ssid_TextChanged(object sender, EventArgs e)
+        {
+            var currencyTextBox = (TextBox)sender;
+            button_OK.Enabled = keyPhrase.Text.Length > 0 && ssid.Text.Length > 0;
+        }
+
+        private void countryCode_TextChanged(object sender, EventArgs e)
+        {
+            var ctl = ((TextBox)sender);
+            ctl.Text = ctl.Text.ToUpper();
+            button_OK.Enabled = ctl.Text.Length > 0;
+        }
+
+        //Double click to country field to fill country code from Windows settings
+        private void countryCode_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ((TextBox)sender).Text = defaultCountry;
+        }
+
+        private void textField_MouseHover(object sender, EventArgs e)
+        {
+            //Help tooltip
+            var resId = String.Format("tip_{0}", ((Control)sender).Name);
+            var text = resources.GetString(resId);
+            if (!String.IsNullOrEmpty(text))
+            {
+                toolTip1.SetToolTip((Control)sender, text.Replace("\\n","\n"));
+            }
         }
     }
     //Helper class

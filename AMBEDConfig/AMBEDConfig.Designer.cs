@@ -54,6 +54,7 @@ namespace AMBEDConfig
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AMBEDConfig));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.countryCode = new System.Windows.Forms.TextBox();
@@ -112,6 +113,7 @@ namespace AMBEDConfig
             this.label_about = new System.Windows.Forms.Label();
             this.label_prodName = new System.Windows.Forms.Label();
             this.label_version = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -153,6 +155,9 @@ namespace AMBEDConfig
             // 
             resources.ApplyResources(this.countryCode, "countryCode");
             this.countryCode.Name = "countryCode";
+            this.countryCode.TextChanged += new System.EventHandler(this.countryCode_TextChanged);
+            this.countryCode.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.countryCode_MouseDoubleClick);
+            this.countryCode.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_countryCode
             // 
@@ -171,8 +176,7 @@ namespace AMBEDConfig
             this.wifiType.Items.AddRange(new object[] {
             resources.GetString("wifiType.Items"),
             resources.GetString("wifiType.Items1"),
-            resources.GetString("wifiType.Items2"),
-            resources.GetString("wifiType.Items3")});
+            resources.GetString("wifiType.Items2")});
             resources.ApplyResources(this.wifiType, "wifiType");
             this.wifiType.Name = "wifiType";
             this.wifiType.Tag = "WiFi encryption type (if not known, WPA-PSK)";
@@ -220,6 +224,7 @@ namespace AMBEDConfig
             this.ipAddr2_1.Tag = "Router\'s IP address";
             this.ipAddr2_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr2_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr2_1.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label9
             // 
@@ -247,6 +252,7 @@ namespace AMBEDConfig
             this.ipAddr1_5.Name = "ipAddr1_5";
             this.ipAddr1_5.TextChanged += new System.EventHandler(this.numericField32_TextChanged);
             this.ipAddr1_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr1_5.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // ipAddr1_4
             // 
@@ -276,20 +282,25 @@ namespace AMBEDConfig
             this.ipAddr1_1.Tag = "Static IP address for the ambe server";
             this.ipAddr1_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr1_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr1_1.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // keyPhrase
             // 
             resources.ApplyResources(this.keyPhrase, "keyPhrase");
             this.keyPhrase.Name = "keyPhrase";
             this.keyPhrase.Tag = "WiFi key phrase or password";
+            this.keyPhrase.TextChanged += new System.EventHandler(this.keyPhrase_ssid_TextChanged);
             this.keyPhrase.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.keyPhrase.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // ssid
             // 
             resources.ApplyResources(this.ssid, "ssid");
             this.ssid.Name = "ssid";
             this.ssid.Tag = "SSID for your WiFi tethering";
+            this.ssid.TextChanged += new System.EventHandler(this.keyPhrase_ssid_TextChanged);
             this.ssid.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.ssid.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_routerAddr2
             // 
@@ -385,6 +396,7 @@ namespace AMBEDConfig
             this.ipAddr4_1.Name = "ipAddr4_1";
             this.ipAddr4_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr4_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr4_1.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label19
             // 
@@ -412,6 +424,7 @@ namespace AMBEDConfig
             this.ipAddr3_5.Name = "ipAddr3_5";
             this.ipAddr3_5.TextChanged += new System.EventHandler(this.numericField32_TextChanged);
             this.ipAddr3_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr3_5.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // ipAddr3_4
             // 
@@ -440,6 +453,7 @@ namespace AMBEDConfig
             this.ipAddr3_1.Name = "ipAddr3_1";
             this.ipAddr3_1.TextChanged += new System.EventHandler(this.numericField255_TextChanged);
             this.ipAddr3_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ipAddr3_1.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_routerAddr4
             // 
@@ -469,6 +483,7 @@ namespace AMBEDConfig
             this.ambePort.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
             this.ambePort.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
             this.ambePort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ambePort.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // sshPort
             // 
@@ -478,6 +493,7 @@ namespace AMBEDConfig
             this.sshPort.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
             this.sshPort.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
             this.sshPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.sshPort.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_ambePort
             // 
@@ -610,6 +626,7 @@ namespace AMBEDConfig
         private Label label_about;
         private Label label_prodName;
         private Label label_version;
+        private ToolTip toolTip1;
     }
 }
 

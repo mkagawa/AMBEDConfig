@@ -126,4 +126,37 @@
 JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
 JA4DQX, JA4CFO, NW6UP (Random order)</value>
   </data>
+  <data name="tip_ambePort" xml:space="preserve">
+    <value>Port number for AMBEd (default: 2465)</value>
+  </data>
+  <data name="tip_countryCode" xml:space="preserve">
+    <value>Enter country code for Wifi\nDouble click the field to set Windows default</value>
+  </data>
+  <data name="tip_ipAddr1_1" xml:space="preserve">
+    <value>Static IP address for this box (Wifi)</value>
+  </data>
+  <data name="tip_ipAddr1_5" xml:space="preserve">
+    <value>Subnet mask (default: 24 bit)</value>
+  </data>
+  <data name="tip_ipAddr2_1" xml:space="preserve">
+    <value>Router's IP address (Wifi)</value>
+  </data>
+  <data name="tip_ipAddr3_1" xml:space="preserve">
+    <value>Static IP address for this box (USB LAN)</value>
+  </data>
+  <data name="tip_ipAddr3_5" xml:space="preserve">
+    <value>Subnet mask (default: 24 bit)</value>
+  </data>
+  <data name="tip_ipAddr4_1" xml:space="preserve">
+    <value>Router's IP address (USB LAN)</value>
+  </data>
+  <data name="tip_keyPhrase" xml:space="preserve">
+    <value>Password (key phrase) for Wifi</value>
+  </data>
+  <data name="tip_sshPort" xml:space="preserve">
+    <value>Port number for SSHd (default: 20022)</value>
+  </data>
+  <data name="tip_ssid" xml:space="preserve">
+    <value>SSID for Wifi</value>
+  </data>
 </root>

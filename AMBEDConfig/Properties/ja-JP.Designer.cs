@@ -341,5 +341,104 @@ namespace AMBEDConfig.Properties {
                 return ResourceManager.GetString("text_aboutUs", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AMBEdのポート番号 (既定値: 2465).
+        /// </summary>
+        internal static string tip_ambePort {
+            get {
+                return ResourceManager.GetString("tip_ambePort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wifiの国コードを設定してください。\n日本国内ではJPを設定してください。.
+        /// </summary>
+        internal static string tip_countryCode {
+            get {
+                return ResourceManager.GetString("tip_countryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 本機の固定IPアドレス (Wifi接続).
+        /// </summary>
+        internal static string tip_ipAddr1_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to サブネットマスク（既定値: 24 ビット).
+        /// </summary>
+        internal static string tip_ipAddr1_5 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr1_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ルーターの固定IPアドレス (Wifi接続).
+        /// </summary>
+        internal static string tip_ipAddr2_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr2_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 本機の固定IPアドレス(USB LAN接続).
+        /// </summary>
+        internal static string tip_ipAddr3_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr3_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to サブネットマスク（既定値: 24 ビット).
+        /// </summary>
+        internal static string tip_ipAddr3_5 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr3_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ルーターの固定IPアドレス(USB LAN接続).
+        /// </summary>
+        internal static string tip_ipAddr4_1 {
+            get {
+                return ResourceManager.GetString("tip_ipAddr4_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wifi の暗号キー.
+        /// </summary>
+        internal static string tip_keyPhrase {
+            get {
+                return ResourceManager.GetString("tip_keyPhrase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSHでアクセスするためのポート番号 (既定値: 20022).
+        /// </summary>
+        internal static string tip_sshPort {
+            get {
+                return ResourceManager.GetString("tip_sshPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wifi の SSID (アクセスポイント名).
+        /// </summary>
+        internal static string tip_ssid {
+            get {
+                return ResourceManager.GetString("tip_ssid", resourceCulture);
+            }
+        }
     }
 }
