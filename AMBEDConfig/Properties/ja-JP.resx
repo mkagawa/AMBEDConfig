@@ -146,7 +146,7 @@
     <value>その他の設定</value>
   </data>
   <data name="label_ambePort" xml:space="preserve">
-    <value>AMBEポート番号(&amp;A)</value>
+    <value>AMBEポート(&amp;A)</value>
   </data>
   <data name="label_ipAddr3" xml:space="preserve">
     <value>固定IPアドレス(&amp;P)</value>
@@ -155,7 +155,7 @@
     <value>ルーターアドレス(&amp;O)</value>
   </data>
   <data name="label_sshPort" xml:space="preserve">
-    <value>SSHポート番号(&amp;S)</value>
+    <value>SSHポート(&amp;S)</value>
   </data>
   <data name="tag_ipAddr1_1" xml:space="preserve">
     <value>ポータブルAMBEサーバーに割り当てる固定IPアドレス</value>
@@ -246,5 +246,18 @@ JA4DQX, JA4CFO, NW6UP (順不同)</value>
   </data>
   <data name="tip_ssid" xml:space="preserve">
     <value>WiFi の SSID (アクセスポイント名)</value>
+  </data>
+  <data name="error_cannotUseSameAddr" xml:space="preserve">
+    <value>WiFiのIPアドレスとUSB LANのIPアドレスは異なる値にしてください</value>
+  </data>
+  <data name="label_error" xml:space="preserve">
+    <value>エラー</value>
+    <comment>MsgBox title</comment>
+  </data>
+  <data name="showPassword" xml:space="preserve">
+    <value>パスワード表示(&amp;U)</value>
+  </data>
+  <data name="text_sshDisabledValue" xml:space="preserve">
+    <value>(無効)</value>
   </data>
 </root>

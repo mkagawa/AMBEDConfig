@@ -64,6 +64,14 @@ namespace AMBEDConfig
             }
 
             button_OK.Enabled = keyPhrase.Text.Length > 0 && ssid.Text.Length > 0;
+            keyPhrase.PasswordChar = '\x25CF';
+            for (int i = 0; i < sshPort.Items.Count; i++)
+            {
+                if (sshPort.Items[i].ToString() == "(Disabled)")
+                {
+                    sshPort.Items[i] = resources.GetString("text_sshDisabledValue");
+                }
+            }
         }
 
         private CultureInfo ApplyCulture(CultureInfo culture)
@@ -253,9 +261,20 @@ namespace AMBEDConfig
             {"sshd_config.txt",
                 new _myObj(new String[] { @"^\s*(Port)\s+(\d+)\s*$" }, (r,ctx) => { //read function
                     ctx.sshPort.Text = r.First().Value.Groups[2].Value;
+                    if (ctx.sshPort.Text == "0")
+                    {
+                        ctx.sshPort.Text = ctx.resources.GetString("text_sshDisabledValue");
+                    }
             }, (r,line,ctx) => { //write function
                 var ret = line.Substring(0, r.Groups[2].Index);
-                ret += ctx.sshPort.Text;
+                if (ctx.sshPort.Text == ctx.resources.GetString("text_sshDisabledValue"))
+                {
+                    ret += "0";
+                }
+                else
+                {
+                    ret += ctx.sshPort.Text;
+                }
                 ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
                 if (line != ret) { 
                     return ret;
@@ -302,6 +321,10 @@ namespace AMBEDConfig
                     }
                     else if (k == "key_mgmt")
                     {
+                        if (v == "WPA-PSK")
+                        {
+                            v = "WPA-PSK/WPA2-PSK";
+                        }
                         ctx.wifiType.Text = v;
                     }
                 }
@@ -322,7 +345,12 @@ namespace AMBEDConfig
                 }
                 else if(k == "key_mgmt") 
                 {
-                    ret += ctx.wifiType.Text;
+                    var v = ctx.wifiType.Text;
+                    if (v == "WPA-PSK/WPA2-PSK")
+                    {
+                        v = "WPA-PSK";
+                    }
+                    ret += v;
                 }
                 ret += line.Substring(r.Groups[2].Index + r.Groups[2].Value.Length);
                 if (line != ret) {
@@ -529,7 +557,7 @@ namespace AMBEDConfig
             var net2 = addr.Address & mask;
             if (net1 != net2)
             {
-                throw new IPAddrException(resources.GetString("error_" + fieldName));
+                throw new IPAddrException("error_" + fieldName);
             }
         }
 
@@ -542,7 +570,7 @@ namespace AMBEDConfig
                 //class A - subnet >= 8
                 if (Byte.Parse(elements[4]) < 8)
                 {
-                    throw new IPAddrException(resources.GetString("error_subnet8"));
+                    throw new IPAddrException("error_subnet8");
                 }
             }
             else if (bytes[0] >= 128 && bytes[0] <= 191)
@@ -550,7 +578,7 @@ namespace AMBEDConfig
                 //class B - subnet >= 16
                 if (Byte.Parse(elements[4]) < 16)
                 {
-                    throw new IPAddrException(resources.GetString("error_subnet16"));
+                    throw new IPAddrException("error_subnet16");
                 }
             }
             else if (bytes[0] >= 192 && bytes[0] <= 223)
@@ -558,7 +586,7 @@ namespace AMBEDConfig
                 //class C - subnet >= 24
                 if (Byte.Parse(elements[4]) < 24)
                 {
-                    throw new IPAddrException(resources.GetString("error_subnet24"));
+                    throw new IPAddrException("error_subnet24");
                 }
             }
             return new IPAddress(bytes);
@@ -570,10 +598,23 @@ namespace AMBEDConfig
             {
                 var addr1 = validateIpAddr("ipAddr1", new String[] { ipAddr1_1.Text, ipAddr1_2.Text, ipAddr1_3.Text, ipAddr1_4.Text, ipAddr1_5.Text });
                 validateRouterAddr("routerAddr2", new String[] { ipAddr2_1.Text, ipAddr2_2.Text, ipAddr2_3.Text, ipAddr2_4.Text }, addr1, Int16.Parse(ipAddr1_5.Text));
+
+                var addr2 = validateIpAddr("ipAddr3", new String[] { ipAddr3_1.Text, ipAddr3_2.Text, ipAddr3_3.Text, ipAddr3_4.Text, ipAddr3_5.Text });
+                validateRouterAddr("routerAddr4", new String[] { ipAddr4_1.Text, ipAddr4_2.Text, ipAddr4_3.Text, ipAddr4_4.Text }, addr2, Int16.Parse(ipAddr3_5.Text));
+
+                if (addr1.Equals(addr2))
+                {
+                    throw new IPAddrException("error_cannotUseSameAddr");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "Error");
+                var msg = ex.Message;
+                if (msg.StartsWith("error_"))
+                {
+                    msg = resources.GetString(msg);
+                }
+                MessageBox.Show(this, msg, resources.GetString("label_error"));
                 return;
             }
 
@@ -718,6 +759,12 @@ namespace AMBEDConfig
             {
                 toolTip1.SetToolTip((Control)sender, text.Replace("\\n","\n"));
             }
+        }
+
+        private void showPassword_CheckedChanged_1(object sender, EventArgs e)
+        {
+            //Toggle password field
+            this.keyPhrase.PasswordChar = (this.keyPhrase.PasswordChar == '\0') ? '\x25CF' : '\0';
         }
     }
     //Helper class

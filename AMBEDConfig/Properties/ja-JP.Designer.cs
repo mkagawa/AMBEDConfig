@@ -88,6 +88,15 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WiFiのIPアドレスとUSB LANのIPアドレスは異なる値にしてください.
+        /// </summary>
+        internal static string error_cannotUseSameAddr {
+            get {
+                return ResourceManager.GetString("error_cannotUseSameAddr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ルーターアドレスの値が不正です.
         /// </summary>
         internal static string error_routerAddr2 {
@@ -187,7 +196,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AMBEポート番号(&amp;A).
+        ///   Looks up a localized string similar to AMBEポート(&amp;A).
         /// </summary>
         internal static string label_ambePort {
             get {
@@ -201,6 +210,15 @@ namespace AMBEDConfig.Properties {
         internal static string label_countryCode {
             get {
                 return ResourceManager.GetString("label_countryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to エラー.
+        /// </summary>
+        internal static string label_error {
+            get {
+                return ResourceManager.GetString("label_error", resourceCulture);
             }
         }
         
@@ -259,7 +277,7 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SSHポート番号(&amp;S).
+        ///   Looks up a localized string similar to SSHポート(&amp;S).
         /// </summary>
         internal static string label_sshPort {
             get {
@@ -304,6 +322,15 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to パスワード表示(&amp;U).
+        /// </summary>
+        internal static string showPassword {
+            get {
+                return ResourceManager.GetString("showPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ポータブルAMBEサーバーに割り当てる固定IPアドレス.
         /// </summary>
         internal static string tag_ipAddr1_1 {
@@ -339,6 +366,15 @@ namespace AMBEDConfig.Properties {
         internal static string text_aboutUs {
             get {
                 return ResourceManager.GetString("text_aboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (無効).
+        /// </summary>
+        internal static string text_sshDisabledValue {
+            get {
+                return ResourceManager.GetString("text_sshDisabledValue", resourceCulture);
             }
         }
         

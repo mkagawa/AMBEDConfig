@@ -57,6 +57,7 @@ namespace AMBEDConfig
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AMBEDConfig));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             this.countryCode = new System.Windows.Forms.TextBox();
             this.label_countryCode = new System.Windows.Forms.Label();
             this.label_wifiType = new System.Windows.Forms.Label();
@@ -104,10 +105,12 @@ namespace AMBEDConfig
             this.label_routerAddr4 = new System.Windows.Forms.Label();
             this.label_ipAddr3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ambePort = new System.Windows.Forms.TextBox();
-            this.sshPort = new System.Windows.Forms.TextBox();
+            this.ambePort = new System.Windows.Forms.ComboBox();
+            this.sshPort = new System.Windows.Forms.ComboBox();
             this.label_ambePort = new System.Windows.Forms.Label();
             this.label_sshPort = new System.Windows.Forms.Label();
+            this.ambePort1 = new System.Windows.Forms.TextBox();
+            this.sshPort1 = new System.Windows.Forms.TextBox();
             this.button_OK = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.label_about = new System.Windows.Forms.Label();
@@ -121,6 +124,7 @@ namespace AMBEDConfig
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.showPassword);
             this.groupBox1.Controls.Add(this.countryCode);
             this.groupBox1.Controls.Add(this.label_countryCode);
             this.groupBox1.Controls.Add(this.label_wifiType);
@@ -151,6 +155,13 @@ namespace AMBEDConfig
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // showPassword
+            // 
+            resources.ApplyResources(this.showPassword, "showPassword");
+            this.showPassword.Name = "showPassword";
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged_1);
+            // 
             // countryCode
             // 
             resources.ApplyResources(this.countryCode, "countryCode");
@@ -174,9 +185,7 @@ namespace AMBEDConfig
             this.wifiType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.wifiType.FormattingEnabled = true;
             this.wifiType.Items.AddRange(new object[] {
-            resources.GetString("wifiType.Items"),
-            resources.GetString("wifiType.Items1"),
-            resources.GetString("wifiType.Items2")});
+            resources.GetString("wifiType.Items")});
             resources.ApplyResources(this.wifiType, "wifiType");
             this.wifiType.Name = "wifiType";
             this.wifiType.Tag = "WiFi encryption type (if not known, WPA-PSK)";
@@ -477,23 +486,25 @@ namespace AMBEDConfig
             // 
             // ambePort
             // 
+            this.ambePort.FormattingEnabled = true;
+            this.ambePort.Items.AddRange(new object[] {
+            resources.GetString("ambePort.Items")});
             resources.ApplyResources(this.ambePort, "ambePort");
             this.ambePort.Name = "ambePort";
             this.ambePort.Tag = "AMBE server port number (default: 2465)";
-            this.ambePort.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
-            this.ambePort.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
             this.ambePort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
-            this.ambePort.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // sshPort
             // 
+            this.sshPort.FormattingEnabled = true;
+            this.sshPort.Items.AddRange(new object[] {
+            resources.GetString("sshPort.Items"),
+            resources.GetString("sshPort.Items1")});
             resources.ApplyResources(this.sshPort, "sshPort");
             this.sshPort.Name = "sshPort";
             this.sshPort.Tag = "SSH port number";
-            this.sshPort.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
-            this.sshPort.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.toolTip1.SetToolTip(this.sshPort, resources.GetString("sshPort.ToolTip"));
             this.sshPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
-            this.sshPort.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_ambePort
             // 
@@ -504,6 +515,26 @@ namespace AMBEDConfig
             // 
             resources.ApplyResources(this.label_sshPort, "label_sshPort");
             this.label_sshPort.Name = "label_sshPort";
+            // 
+            // ambePort1
+            // 
+            resources.ApplyResources(this.ambePort1, "ambePort1");
+            this.ambePort1.Name = "ambePort1";
+            this.ambePort1.Tag = "AMBE server port number (default: 2465)";
+            this.ambePort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
+            this.ambePort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.ambePort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ambePort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
+            // 
+            // sshPort1
+            // 
+            resources.ApplyResources(this.sshPort1, "sshPort1");
+            this.sshPort1.Name = "sshPort1";
+            this.sshPort1.Tag = "SSH port number";
+            this.sshPort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
+            this.sshPort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.sshPort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.sshPort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // button_OK
             // 
@@ -546,11 +577,13 @@ namespace AMBEDConfig
             this.Controls.Add(this.label_version);
             this.Controls.Add(this.label_prodName);
             this.Controls.Add(this.label_about);
+            this.Controls.Add(this.sshPort1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.button_cancel);
+            this.Controls.Add(this.ambePort1);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -562,8 +595,8 @@ namespace AMBEDConfig
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -616,8 +649,8 @@ namespace AMBEDConfig
         private System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox ambePort;
-        private System.Windows.Forms.TextBox sshPort;
+        private System.Windows.Forms.TextBox ambePort1;
+        private System.Windows.Forms.TextBox sshPort1;
         private System.Windows.Forms.Label label_ambePort;
         private System.Windows.Forms.Label label_sshPort;
         private System.Windows.Forms.CheckBox checkBox_useUSB;
@@ -627,6 +660,9 @@ namespace AMBEDConfig
         private Label label_prodName;
         private Label label_version;
         private ToolTip toolTip1;
+        private CheckBox showPassword;
+        private ComboBox sshPort;
+        private ComboBox ambePort;
     }
 }
 

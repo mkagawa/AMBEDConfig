@@ -61,6 +61,69 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to USB LAN IP address must be different from WiFi&apos;s one..
+        /// </summary>
+        internal static string error_cannotUseSameAddr {
+            get {
+                return ResourceManager.GetString("error_cannotUseSameAddr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WiFi router address is incorrect.
+        /// </summary>
+        internal static string error_routerAddr2 {
+            get {
+                return ResourceManager.GetString("error_routerAddr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USB LAN router address is incorrect.
+        /// </summary>
+        internal static string error_routerAddr4 {
+            get {
+                return ResourceManager.GetString("error_routerAddr4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subnet mask must be 16 or greater value.
+        /// </summary>
+        internal static string error_subnet16 {
+            get {
+                return ResourceManager.GetString("error_subnet16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subnet mask must be 24 or greater value.
+        /// </summary>
+        internal static string error_subnet24 {
+            get {
+                return ResourceManager.GetString("error_subnet24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subnet mask must be 8 or greater value.
+        /// </summary>
+        internal static string error_subnet8 {
+            get {
+                return ResourceManager.GetString("error_subnet8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string label_error {
+            get {
+                return ResourceManager.GetString("label_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to (Config Software Version {0}).
         /// </summary>
         internal static string label_version {
@@ -78,6 +141,15 @@ namespace AMBEDConfig.Properties {
         internal static string text_aboutUs {
             get {
                 return ResourceManager.GetString("text_aboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Disabled).
+        /// </summary>
+        internal static string text_sshDisabledValue {
+            get {
+                return ResourceManager.GetString("text_sshDisabledValue", resourceCulture);
             }
         }
         

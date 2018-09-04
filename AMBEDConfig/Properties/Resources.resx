@@ -117,6 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="error_cannotUseSameAddr" xml:space="preserve">
+    <value>USB LAN IP address must be different from WiFi's one.</value>
+  </data>
+  <data name="error_routerAddr2" xml:space="preserve">
+    <value>WiFi router address is incorrect</value>
+  </data>
+  <data name="error_routerAddr4" xml:space="preserve">
+    <value>USB LAN router address is incorrect</value>
+  </data>
+  <data name="error_subnet16" xml:space="preserve">
+    <value>Subnet mask must be 16 or greater value</value>
+  </data>
+  <data name="error_subnet24" xml:space="preserve">
+    <value>Subnet mask must be 24 or greater value</value>
+  </data>
+  <data name="error_subnet8" xml:space="preserve">
+    <value>Subnet mask must be 8 or greater value</value>
+  </data>
+  <data name="label_error" xml:space="preserve">
+    <value>Error</value>
+    <comment>MsgBox title</comment>
+  </data>
   <data name="label_version" xml:space="preserve">
     <value>(Config Software Version {0})</value>
   </data>
@@ -125,6 +147,9 @@
 
 JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
 JA4DQX, JA4CFO, NW6UP (Random order)</value>
+  </data>
+  <data name="text_sshDisabledValue" xml:space="preserve">
+    <value>(Disabled)</value>
   </data>
   <data name="tip_ambePort" xml:space="preserve">
     <value>Port number for AMBEd (default: 2465)</value>
