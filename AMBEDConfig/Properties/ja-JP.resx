@@ -123,7 +123,7 @@
   <data name="label_ssid" xml:space="preserve">
     <value>SSID(&amp;S)</value>
   </data>
-  <data name="programTitle" xml:space="preserve">
+  <data name="programTitle_default" xml:space="preserve">
     <value>ポータブル AMBEサーバー 設定</value>
     <comment>Program title</comment>
   </data>
@@ -259,5 +259,59 @@ JA4DQX, JA4CFO, NW6UP (順不同)</value>
   </data>
   <data name="text_sshDisabledValue" xml:space="preserve">
     <value>(無効)</value>
+  </data>
+  <data name="dhcpMode1_1" xml:space="preserve">
+    <value>手動設定(&amp;M)</value>
+  </data>
+  <data name="dhcpMode1_2" xml:space="preserve">
+    <value>DHCPで自動設定(&amp;D)</value>
+  </data>
+  <data name="dhcpMode2_1" xml:space="preserve">
+    <value>手動設定(&amp;A)</value>
+  </data>
+  <data name="dhcpMode2_2" xml:space="preserve">
+    <value>DHCPで自動設定(&amp;H)</value>
+  </data>
+  <data name="label_txOff" xml:space="preserve">
+    <value>送信オフセット(&amp;F)</value>
+  </data>
+  <data name="tab_advancedPage" xml:space="preserve">
+    <value>高度な設定</value>
+  </data>
+  <data name="tab_basicPage" xml:space="preserve">
+    <value>基本設定</value>
+  </data>
+  <data name="groupBox_noraGwConfig" xml:space="preserve">
+    <value>NoraGatewayの設定</value>
+  </data>
+  <data name="groupBox_otherConfig" xml:space="preserve">
+    <value>その他の設定</value>
+  </data>
+  <data name="label_nodeCS" xml:space="preserve">
+    <value>ノードコールサイン</value>
+  </data>
+  <data name="label_rxFreq" xml:space="preserve">
+    <value>送受信周波数(&amp;R)</value>
+  </data>
+  <data name="label_rxOff" xml:space="preserve">
+    <value>受信オフセット(&amp;O)</value>
+  </data>
+  <data name="label_txFreq" xml:space="preserve">
+    <value>送信周波数(&amp;T)</value>
+  </data>
+  <data name="label_nodeStationCS" xml:space="preserve">
+    <value>ゲートウェイ コール(&amp;C)</value>
+  </data>
+  <data name="programTitle_nora" xml:space="preserve">
+    <value>NoraGateway 設定</value>
+  </data>
+  <data name="text_freqRange1" xml:space="preserve">
+    <value>430.0,440.0</value>
+  </data>
+  <data name="text_freqRange2" xml:space="preserve">
+    <value>144.0,146.0</value>
+  </data>
+  <data name="tab_noraGwPage" xml:space="preserve">
+    <value>Nora Gateway</value>
   </data>
 </root>

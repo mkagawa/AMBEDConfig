@@ -61,6 +61,24 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 高度な設定.
+        /// </summary>
+        internal static string tab_advancedPage {
+            get {
+                return ResourceManager.GetString("tab_advancedPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 基本設定.
+        /// </summary>
+        internal static string tab_basicPage {
+            get {
+                return ResourceManager.GetString("tab_basicPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to キャンセル.
         /// </summary>
         internal static string button_cancel {
@@ -84,6 +102,42 @@ namespace AMBEDConfig.Properties {
         internal static string checkBox_useUSB {
             get {
                 return ResourceManager.GetString("checkBox_useUSB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 手動設定(&amp;M).
+        /// </summary>
+        internal static string dhcpMode1_1 {
+            get {
+                return ResourceManager.GetString("dhcpMode1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DHCPで自動設定(&amp;D).
+        /// </summary>
+        internal static string dhcpMode1_2 {
+            get {
+                return ResourceManager.GetString("dhcpMode1_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 手動設定(&amp;A).
+        /// </summary>
+        internal static string dhcpMode2_1 {
+            get {
+                return ResourceManager.GetString("dhcpMode2_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DHCPで自動設定(&amp;H).
+        /// </summary>
+        internal static string dhcpMode2_2 {
+            get {
+                return ResourceManager.GetString("dhcpMode2_2", resourceCulture);
             }
         }
         
@@ -156,6 +210,26 @@ namespace AMBEDConfig.Properties {
         internal static string fld_routerAddr2 {
             get {
                 return ResourceManager.GetString("fld_routerAddr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NoraGatewayの設定.
+        /// </summary>
+        internal static string groupBox_noraGwConfig {
+            get {
+                return ResourceManager.GetString("groupBox_noraGwConfig", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to NoraGatewayの設定.
+        /// </summary>
+        internal static string tab_noraGwPage
+        {
+            get
+            {
+                return ResourceManager.GetString("tab_noraGwPage", resourceCulture);
             }
         }
         
@@ -277,6 +351,24 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 受信周波数.
+        /// </summary>
+        internal static string label_rxFreq {
+            get {
+                return ResourceManager.GetString("label_rxFreq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 受信オフセット.
+        /// </summary>
+        internal static string label_rxOff {
+            get {
+                return ResourceManager.GetString("label_rxOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SSHポート(&amp;S).
         /// </summary>
         internal static string label_sshPort {
@@ -291,6 +383,24 @@ namespace AMBEDConfig.Properties {
         internal static string label_ssid {
             get {
                 return ResourceManager.GetString("label_ssid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 送信周波数.
+        /// </summary>
+        internal static string label_txFreq {
+            get {
+                return ResourceManager.GetString("label_txFreq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 送信オフセット.
+        /// </summary>
+        internal static string label_txOff {
+            get {
+                return ResourceManager.GetString("label_txOff", resourceCulture);
             }
         }
         
@@ -315,7 +425,7 @@ namespace AMBEDConfig.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ポータブル AMBEサーバー 設定.
         /// </summary>
-        internal static string programTitle {
+        internal static string programTitle_default {
             get {
                 return ResourceManager.GetString("programTitle", resourceCulture);
             }

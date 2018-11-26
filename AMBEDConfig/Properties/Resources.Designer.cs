@@ -133,6 +133,24 @@ namespace AMBEDConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Portable AMBE Server Configuration.
+        /// </summary>
+        internal static string programTitle_default {
+            get {
+                return ResourceManager.GetString("programTitle_default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NoraGateway Configuration.
+        /// </summary>
+        internal static string programTitle_nora {
+            get {
+                return ResourceManager.GetString("programTitle_nora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright © 2018 by XRF Reflector Club, Japan
         ///
         ///JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
@@ -141,6 +159,24 @@ namespace AMBEDConfig.Properties {
         internal static string text_aboutUs {
             get {
                 return ResourceManager.GetString("text_aboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 420.0,460.0.
+        /// </summary>
+        internal static string text_freqRange1 {
+            get {
+                return ResourceManager.GetString("text_freqRange1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 144.0,148.0.
+        /// </summary>
+        internal static string text_freqRange2 {
+            get {
+                return ResourceManager.GetString("text_freqRange2", resourceCulture);
             }
         }
         

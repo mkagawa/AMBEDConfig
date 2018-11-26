@@ -56,7 +56,35 @@ namespace AMBEDConfig
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AMBEDConfig));
+            this.ambePort1 = new System.Windows.Forms.TextBox();
+            this.sshPort1 = new System.Windows.Forms.TextBox();
+            this.button_OK = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
+            this.label_about = new System.Windows.Forms.Label();
+            this.label_prodName = new System.Windows.Forms.Label();
+            this.label_version = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.sshPort = new System.Windows.Forms.ComboBox();
+            this.tab_noraGwPage = new System.Windows.Forms.TabPage();
+            this.groupBox_noraGwConfig = new System.Windows.Forms.GroupBox();
+            this.labelTxHz = new System.Windows.Forms.Label();
+            this.labelRxHz = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label_txOff = new System.Windows.Forms.Label();
+            this.txFrequencyOffset = new System.Windows.Forms.TextBox();
+            this.rxFrequencyOffset = new System.Windows.Forms.TextBox();
+            this.label_txFreq = new System.Windows.Forms.Label();
+            this.label_rxFreq = new System.Windows.Forms.Label();
+            this.txFrequency = new System.Windows.Forms.TextBox();
+            this.rxFrequency = new System.Windows.Forms.TextBox();
+            this.noraGwCallSign = new System.Windows.Forms.TextBox();
+            this.label_nodeStationCS = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_rxOff = new System.Windows.Forms.Label();
+            this.tab_basicPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dhcpMode1_2 = new System.Windows.Forms.RadioButton();
+            this.dhcpMode1_1 = new System.Windows.Forms.RadioButton();
             this.showPassword = new System.Windows.Forms.CheckBox();
             this.countryCode = new System.Windows.Forms.TextBox();
             this.label_countryCode = new System.Windows.Forms.Label();
@@ -85,6 +113,8 @@ namespace AMBEDConfig
             this.label_keyPhrase = new System.Windows.Forms.Label();
             this.label_ssid = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dhcpMode2_2 = new System.Windows.Forms.RadioButton();
+            this.dhcpMode2_1 = new System.Windows.Forms.RadioButton();
             this.checkBox_useUSB = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -104,26 +134,209 @@ namespace AMBEDConfig
             this.ipAddr3_1 = new System.Windows.Forms.TextBox();
             this.label_routerAddr4 = new System.Windows.Forms.Label();
             this.label_ipAddr3 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab_advancedPage = new System.Windows.Forms.TabPage();
+            this.groupBox_otherConfig = new System.Windows.Forms.GroupBox();
             this.ambePort = new System.Windows.Forms.ComboBox();
-            this.sshPort = new System.Windows.Forms.ComboBox();
             this.label_ambePort = new System.Windows.Forms.Label();
             this.label_sshPort = new System.Windows.Forms.Label();
-            this.ambePort1 = new System.Windows.Forms.TextBox();
-            this.sshPort1 = new System.Windows.Forms.TextBox();
-            this.button_OK = new System.Windows.Forms.Button();
-            this.button_cancel = new System.Windows.Forms.Button();
-            this.label_about = new System.Windows.Forms.Label();
-            this.label_prodName = new System.Windows.Forms.Label();
-            this.label_version = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tab_noraGwPage.SuspendLayout();
+            this.groupBox_noraGwConfig.SuspendLayout();
+            this.tab_basicPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tab_advancedPage.SuspendLayout();
+            this.groupBox_otherConfig.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ambePort1
+            // 
+            resources.ApplyResources(this.ambePort1, "ambePort1");
+            this.ambePort1.Name = "ambePort1";
+            this.ambePort1.Tag = "AMBE server port number (default: 2465)";
+            this.ambePort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
+            this.ambePort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.ambePort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.ambePort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
+            // 
+            // sshPort1
+            // 
+            resources.ApplyResources(this.sshPort1, "sshPort1");
+            this.sshPort1.Name = "sshPort1";
+            this.sshPort1.Tag = "SSH port number";
+            this.sshPort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
+            this.sshPort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
+            this.sshPort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
+            this.sshPort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
+            // 
+            // button_OK
+            // 
+            resources.ApplyResources(this.button_OK, "button_OK");
+            this.button_OK.Name = "button_OK";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // button_cancel
+            // 
+            resources.ApplyResources(this.button_cancel, "button_cancel");
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // label_about
+            // 
+            this.label_about.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_about, "label_about");
+            this.label_about.Name = "label_about";
+            this.label_about.Click += new System.EventHandler(this.labelAbout_Click);
+            // 
+            // label_prodName
+            // 
+            this.label_prodName.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_prodName, "label_prodName");
+            this.label_prodName.Name = "label_prodName";
+            this.label_prodName.Click += new System.EventHandler(this.labelAbout_Click);
+            // 
+            // label_version
+            // 
+            this.label_version.Cursor = System.Windows.Forms.Cursors.Help;
+            resources.ApplyResources(this.label_version, "label_version");
+            this.label_version.Name = "label_version";
+            // 
+            // sshPort
+            // 
+            this.sshPort.FormattingEnabled = true;
+            this.sshPort.Items.AddRange(new object[] {
+            resources.GetString("sshPort.Items"),
+            resources.GetString("sshPort.Items1")});
+            resources.ApplyResources(this.sshPort, "sshPort");
+            this.sshPort.Name = "sshPort";
+            this.sshPort.Tag = "SSH port number";
+            this.toolTip1.SetToolTip(this.sshPort, resources.GetString("sshPort.ToolTip"));
+            // 
+            // tab_noraGwPage
+            // 
+            this.tab_noraGwPage.Controls.Add(this.groupBox_noraGwConfig);
+            resources.ApplyResources(this.tab_noraGwPage, "tab_noraGwPage");
+            this.tab_noraGwPage.Name = "tab_noraGwPage";
+            this.tab_noraGwPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_noraGwConfig
+            // 
+            this.groupBox_noraGwConfig.Controls.Add(this.labelTxHz);
+            this.groupBox_noraGwConfig.Controls.Add(this.labelRxHz);
+            this.groupBox_noraGwConfig.Controls.Add(this.label10);
+            this.groupBox_noraGwConfig.Controls.Add(this.label_txOff);
+            this.groupBox_noraGwConfig.Controls.Add(this.txFrequencyOffset);
+            this.groupBox_noraGwConfig.Controls.Add(this.rxFrequencyOffset);
+            this.groupBox_noraGwConfig.Controls.Add(this.label_txFreq);
+            this.groupBox_noraGwConfig.Controls.Add(this.label_rxFreq);
+            this.groupBox_noraGwConfig.Controls.Add(this.txFrequency);
+            this.groupBox_noraGwConfig.Controls.Add(this.rxFrequency);
+            this.groupBox_noraGwConfig.Controls.Add(this.noraGwCallSign);
+            this.groupBox_noraGwConfig.Controls.Add(this.label_nodeStationCS);
+            this.groupBox_noraGwConfig.Controls.Add(this.label5);
+            this.groupBox_noraGwConfig.Controls.Add(this.label_rxOff);
+            resources.ApplyResources(this.groupBox_noraGwConfig, "groupBox_noraGwConfig");
+            this.groupBox_noraGwConfig.Name = "groupBox_noraGwConfig";
+            this.groupBox_noraGwConfig.TabStop = false;
+            // 
+            // labelTxHz
+            // 
+            resources.ApplyResources(this.labelTxHz, "labelTxHz");
+            this.labelTxHz.Name = "labelTxHz";
+            // 
+            // labelRxHz
+            // 
+            resources.ApplyResources(this.labelRxHz, "labelRxHz");
+            this.labelRxHz.Name = "labelRxHz";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // label_txOff
+            // 
+            resources.ApplyResources(this.label_txOff, "label_txOff");
+            this.label_txOff.Name = "label_txOff";
+            // 
+            // txFrequencyOffset
+            // 
+            resources.ApplyResources(this.txFrequencyOffset, "txFrequencyOffset");
+            this.txFrequencyOffset.Name = "txFrequencyOffset";
+            this.txFrequencyOffset.Tag = "TX Offset Frequency for this hotspot";
+            this.txFrequencyOffset.TextChanged += new System.EventHandler(this.noraFreqOffset_TextChanged);
+            // 
+            // rxFrequencyOffset
+            // 
+            resources.ApplyResources(this.rxFrequencyOffset, "rxFrequencyOffset");
+            this.rxFrequencyOffset.Name = "rxFrequencyOffset";
+            this.rxFrequencyOffset.Tag = "RX Offset Frequency for this hotspot";
+            this.rxFrequencyOffset.TextChanged += new System.EventHandler(this.noraFreqOffset_TextChanged);
+            // 
+            // label_txFreq
+            // 
+            resources.ApplyResources(this.label_txFreq, "label_txFreq");
+            this.label_txFreq.Name = "label_txFreq";
+            // 
+            // label_rxFreq
+            // 
+            resources.ApplyResources(this.label_rxFreq, "label_rxFreq");
+            this.label_rxFreq.Name = "label_rxFreq";
+            // 
+            // txFrequency
+            // 
+            resources.ApplyResources(this.txFrequency, "txFrequency");
+            this.txFrequency.Name = "txFrequency";
+            this.txFrequency.Tag = "TX Frequency for this hotspot";
+            this.txFrequency.TextChanged += new System.EventHandler(this.noraFreqTextBox_TextChanged);
+            this.txFrequency.Leave += new System.EventHandler(this.noraFreqTextBox_FocusLeft);
+            // 
+            // rxFrequency
+            // 
+            resources.ApplyResources(this.rxFrequency, "rxFrequency");
+            this.rxFrequency.Name = "rxFrequency";
+            this.rxFrequency.Tag = "RX Frequency for this hotspot";
+            this.rxFrequency.TextChanged += new System.EventHandler(this.noraFreqTextBox_TextChanged);
+            this.rxFrequency.Leave += new System.EventHandler(this.noraFreqTextBox_FocusLeft);
+            // 
+            // noraGwCallSign
+            // 
+            this.noraGwCallSign.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            resources.ApplyResources(this.noraGwCallSign, "noraGwCallSign");
+            this.noraGwCallSign.Name = "noraGwCallSign";
+            this.noraGwCallSign.Tag = "SSID for your WiFi tethering";
+            this.noraGwCallSign.TextChanged += new System.EventHandler(this.noraGwCallSign_TextChanged);
+            // 
+            // label_nodeStationCS
+            // 
+            resources.ApplyResources(this.label_nodeStationCS, "label_nodeStationCS");
+            this.label_nodeStationCS.Name = "label_nodeStationCS";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label_rxOff
+            // 
+            resources.ApplyResources(this.label_rxOff, "label_rxOff");
+            this.label_rxOff.Name = "label_rxOff";
+            // 
+            // tab_basicPage
+            // 
+            this.tab_basicPage.Controls.Add(this.groupBox1);
+            this.tab_basicPage.Controls.Add(this.groupBox2);
+            resources.ApplyResources(this.tab_basicPage, "tab_basicPage");
+            this.tab_basicPage.Name = "tab_basicPage";
+            this.tab_basicPage.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dhcpMode1_2);
+            this.groupBox1.Controls.Add(this.dhcpMode1_1);
             this.groupBox1.Controls.Add(this.showPassword);
             this.groupBox1.Controls.Add(this.countryCode);
             this.groupBox1.Controls.Add(this.label_countryCode);
@@ -155,20 +368,33 @@ namespace AMBEDConfig
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // dhcpMode1_2
+            // 
+            resources.ApplyResources(this.dhcpMode1_2, "dhcpMode1_2");
+            this.dhcpMode1_2.Name = "dhcpMode1_2";
+            this.dhcpMode1_2.TabStop = true;
+            this.dhcpMode1_2.UseVisualStyleBackColor = true;
+            this.dhcpMode1_2.CheckedChanged += new System.EventHandler(this.dhcpMode1_CheckedChanged);
+            // 
+            // dhcpMode1_1
+            // 
+            resources.ApplyResources(this.dhcpMode1_1, "dhcpMode1_1");
+            this.dhcpMode1_1.Name = "dhcpMode1_1";
+            this.dhcpMode1_1.TabStop = true;
+            this.dhcpMode1_1.UseVisualStyleBackColor = true;
+            this.dhcpMode1_1.CheckedChanged += new System.EventHandler(this.dhcpMode1_CheckedChanged);
+            // 
             // showPassword
             // 
             resources.ApplyResources(this.showPassword, "showPassword");
             this.showPassword.Name = "showPassword";
             this.showPassword.UseVisualStyleBackColor = true;
-            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged_1);
+            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
             // 
             // countryCode
             // 
             resources.ApplyResources(this.countryCode, "countryCode");
             this.countryCode.Name = "countryCode";
-            this.countryCode.TextChanged += new System.EventHandler(this.countryCode_TextChanged);
-            this.countryCode.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.countryCode_MouseDoubleClick);
-            this.countryCode.MouseHover += new System.EventHandler(this.textField_MouseHover);
             // 
             // label_countryCode
             // 
@@ -333,6 +559,8 @@ namespace AMBEDConfig
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dhcpMode2_2);
+            this.groupBox2.Controls.Add(this.dhcpMode2_1);
             this.groupBox2.Controls.Add(this.checkBox_useUSB);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label17);
@@ -355,6 +583,22 @@ namespace AMBEDConfig
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // dhcpMode2_2
+            // 
+            resources.ApplyResources(this.dhcpMode2_2, "dhcpMode2_2");
+            this.dhcpMode2_2.Name = "dhcpMode2_2";
+            this.dhcpMode2_2.TabStop = true;
+            this.dhcpMode2_2.UseVisualStyleBackColor = true;
+            this.dhcpMode2_2.CheckedChanged += new System.EventHandler(this.dhcpMode2_CheckedChanged);
+            // 
+            // dhcpMode2_1
+            // 
+            resources.ApplyResources(this.dhcpMode2_1, "dhcpMode2_1");
+            this.dhcpMode2_1.Name = "dhcpMode2_1";
+            this.dhcpMode2_1.TabStop = true;
+            this.dhcpMode2_1.UseVisualStyleBackColor = true;
+            this.dhcpMode2_1.CheckedChanged += new System.EventHandler(this.dhcpMode2_CheckedChanged);
             // 
             // checkBox_useUSB
             // 
@@ -474,15 +718,31 @@ namespace AMBEDConfig
             resources.ApplyResources(this.label_ipAddr3, "label_ipAddr3");
             this.label_ipAddr3.Name = "label_ipAddr3";
             // 
-            // groupBox3
+            // tabControl1
             // 
-            this.groupBox3.Controls.Add(this.ambePort);
-            this.groupBox3.Controls.Add(this.sshPort);
-            this.groupBox3.Controls.Add(this.label_ambePort);
-            this.groupBox3.Controls.Add(this.label_sshPort);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
+            this.tabControl1.Controls.Add(this.tab_basicPage);
+            this.tabControl1.Controls.Add(this.tab_advancedPage);
+            this.tabControl1.Controls.Add(this.tab_noraGwPage);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tab_advancedPage
+            // 
+            this.tab_advancedPage.Controls.Add(this.groupBox_otherConfig);
+            resources.ApplyResources(this.tab_advancedPage, "tab_advancedPage");
+            this.tab_advancedPage.Name = "tab_advancedPage";
+            this.tab_advancedPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_otherConfig
+            // 
+            this.groupBox_otherConfig.Controls.Add(this.ambePort);
+            this.groupBox_otherConfig.Controls.Add(this.sshPort);
+            this.groupBox_otherConfig.Controls.Add(this.label_ambePort);
+            this.groupBox_otherConfig.Controls.Add(this.label_sshPort);
+            resources.ApplyResources(this.groupBox_otherConfig, "groupBox_otherConfig");
+            this.groupBox_otherConfig.Name = "groupBox_otherConfig";
+            this.groupBox_otherConfig.TabStop = false;
             // 
             // ambePort
             // 
@@ -494,18 +754,6 @@ namespace AMBEDConfig
             this.ambePort.Tag = "AMBE server port number (default: 2465)";
             this.ambePort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
             // 
-            // sshPort
-            // 
-            this.sshPort.FormattingEnabled = true;
-            this.sshPort.Items.AddRange(new object[] {
-            resources.GetString("sshPort.Items"),
-            resources.GetString("sshPort.Items1")});
-            resources.ApplyResources(this.sshPort, "sshPort");
-            this.sshPort.Name = "sshPort";
-            this.sshPort.Tag = "SSH port number";
-            this.toolTip1.SetToolTip(this.sshPort, resources.GetString("sshPort.ToolTip"));
-            this.sshPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
-            // 
             // label_ambePort
             // 
             resources.ApplyResources(this.label_ambePort, "label_ambePort");
@@ -516,71 +764,15 @@ namespace AMBEDConfig
             resources.ApplyResources(this.label_sshPort, "label_sshPort");
             this.label_sshPort.Name = "label_sshPort";
             // 
-            // ambePort1
-            // 
-            resources.ApplyResources(this.ambePort1, "ambePort1");
-            this.ambePort1.Name = "ambePort1";
-            this.ambePort1.Tag = "AMBE server port number (default: 2465)";
-            this.ambePort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
-            this.ambePort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
-            this.ambePort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
-            this.ambePort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
-            // 
-            // sshPort1
-            // 
-            resources.ApplyResources(this.sshPort1, "sshPort1");
-            this.sshPort1.Name = "sshPort1";
-            this.sshPort1.Tag = "SSH port number";
-            this.sshPort1.TextChanged += new System.EventHandler(this.numericField65536_TextChanged);
-            this.sshPort1.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.text_HelpRequested);
-            this.sshPort1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberFld_KeyPress);
-            this.sshPort1.MouseHover += new System.EventHandler(this.textField_MouseHover);
-            // 
-            // button_OK
-            // 
-            resources.ApplyResources(this.button_OK, "button_OK");
-            this.button_OK.Name = "button_OK";
-            this.button_OK.UseVisualStyleBackColor = true;
-            this.button_OK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // button_cancel
-            // 
-            resources.ApplyResources(this.button_cancel, "button_cancel");
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // label_about
-            // 
-            this.label_about.Cursor = System.Windows.Forms.Cursors.Help;
-            resources.ApplyResources(this.label_about, "label_about");
-            this.label_about.Name = "label_about";
-            this.label_about.Click += new System.EventHandler(this.labelAbout_Click);
-            // 
-            // label_prodName
-            // 
-            this.label_prodName.Cursor = System.Windows.Forms.Cursors.Help;
-            resources.ApplyResources(this.label_prodName, "label_prodName");
-            this.label_prodName.Name = "label_prodName";
-            this.label_prodName.Click += new System.EventHandler(this.labelAbout_Click);
-            // 
-            // label_version
-            // 
-            this.label_version.Cursor = System.Windows.Forms.Cursors.Help;
-            resources.ApplyResources(this.label_version, "label_version");
-            this.label_version.Name = "label_version";
-            // 
             // AMBEDConfig
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label_version);
             this.Controls.Add(this.label_prodName);
             this.Controls.Add(this.label_about);
             this.Controls.Add(this.sshPort1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.ambePort1);
@@ -588,13 +780,20 @@ namespace AMBEDConfig
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AMBEDConfig";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Load += new System.EventHandler(this.AMBEDConfig_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AMBEDConfig_KeyDown);
+            this.tab_noraGwPage.ResumeLayout(false);
+            this.groupBox_noraGwConfig.ResumeLayout(false);
+            this.groupBox_noraGwConfig.PerformLayout();
+            this.tab_basicPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tab_advancedPage.ResumeLayout(false);
+            this.groupBox_otherConfig.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,67 +801,90 @@ namespace AMBEDConfig
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label_routerAddr2;
-        private System.Windows.Forms.Label label_wifiType;
-        private System.Windows.Forms.Label label_ipAddr1;
-        private System.Windows.Forms.ComboBox wifiType;
-        private System.Windows.Forms.Label label_keyPhrase;
-        private System.Windows.Forms.Label label_ssid;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox ipAddr2_4;
-        private System.Windows.Forms.TextBox ipAddr2_3;
-        private System.Windows.Forms.TextBox ipAddr2_2;
-        private System.Windows.Forms.TextBox ipAddr2_1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox ipAddr1_5;
-        private System.Windows.Forms.TextBox ipAddr1_4;
-        private System.Windows.Forms.TextBox ipAddr1_3;
-        private System.Windows.Forms.TextBox ipAddr1_2;
-        private System.Windows.Forms.TextBox ipAddr1_1;
-        private System.Windows.Forms.TextBox keyPhrase;
-        private System.Windows.Forms.TextBox ssid;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox ipAddr4_4;
-        private System.Windows.Forms.TextBox ipAddr4_3;
-        private System.Windows.Forms.TextBox ipAddr4_2;
-        private System.Windows.Forms.TextBox ipAddr4_1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox ipAddr3_5;
-        private System.Windows.Forms.TextBox ipAddr3_4;
-        private System.Windows.Forms.TextBox ipAddr3_3;
-        private System.Windows.Forms.TextBox ipAddr3_2;
-        private System.Windows.Forms.TextBox ipAddr3_1;
-        private System.Windows.Forms.Label label_routerAddr4;
-        private System.Windows.Forms.Label label_ipAddr3;
         private System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_cancel;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox ambePort1;
         private System.Windows.Forms.TextBox sshPort1;
-        private System.Windows.Forms.Label label_ambePort;
-        private System.Windows.Forms.Label label_sshPort;
-        private System.Windows.Forms.CheckBox checkBox_useUSB;
-        private TextBox countryCode;
-        private Label label_countryCode;
         private Label label_about;
         private Label label_prodName;
         private Label label_version;
         private ToolTip toolTip1;
+        private TabPage tab_noraGwPage;
+        private GroupBox groupBox_noraGwConfig;
+        private TabPage tab_basicPage;
+        private GroupBox groupBox1;
+        private RadioButton dhcpMode1_2;
+        private RadioButton dhcpMode1_1;
         private CheckBox showPassword;
-        private ComboBox sshPort;
+        private TextBox countryCode;
+        private Label label_countryCode;
+        private Label label_wifiType;
+        private ComboBox wifiType;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private TextBox ipAddr2_4;
+        private TextBox ipAddr2_3;
+        private TextBox ipAddr2_2;
+        private TextBox ipAddr2_1;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private TextBox ipAddr1_5;
+        private TextBox ipAddr1_4;
+        private TextBox ipAddr1_3;
+        private TextBox ipAddr1_2;
+        private TextBox ipAddr1_1;
+        private TextBox keyPhrase;
+        private TextBox ssid;
+        private Label label_routerAddr2;
+        private Label label_ipAddr1;
+        private Label label_keyPhrase;
+        private Label label_ssid;
+        private GroupBox groupBox2;
+        private RadioButton dhcpMode2_2;
+        private RadioButton dhcpMode2_1;
+        private CheckBox checkBox_useUSB;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private TextBox ipAddr4_4;
+        private TextBox ipAddr4_3;
+        private TextBox ipAddr4_2;
+        private TextBox ipAddr4_1;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private TextBox ipAddr3_5;
+        private TextBox ipAddr3_4;
+        private TextBox ipAddr3_3;
+        private TextBox ipAddr3_2;
+        private TextBox ipAddr3_1;
+        private Label label_routerAddr4;
+        private Label label_ipAddr3;
+        private TabControl tabControl1;
+        private TabPage tab_advancedPage;
+        private GroupBox groupBox_otherConfig;
         private ComboBox ambePort;
+        private ComboBox sshPort;
+        private Label label_ambePort;
+        private Label label_sshPort;
+        private Label labelTxHz;
+        private Label labelRxHz;
+        private Label label10;
+        private Label label_txOff;
+        private TextBox txFrequencyOffset;
+        private TextBox rxFrequencyOffset;
+        private Label label_txFreq;
+        private Label label_rxFreq;
+        private TextBox txFrequency;
+        private TextBox rxFrequency;
+        private TextBox noraGwCallSign;
+        private Label label_nodeStationCS;
+        private Label label5;
+        private Label label_rxOff;
     }
 }
 

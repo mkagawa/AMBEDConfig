@@ -142,11 +142,23 @@
   <data name="label_version" xml:space="preserve">
     <value>(Config Software Version {0})</value>
   </data>
+  <data name="programTitle_default" xml:space="preserve">
+    <value>Portable AMBE Server Configuration</value>
+  </data>
+  <data name="programTitle_nora" xml:space="preserve">
+    <value>NoraGateway Configuration</value>
+  </data>
   <data name="text_aboutUs" xml:space="preserve">
     <value>Copyright © 2018 by XRF Reflector Club, Japan
 
 JR1OFP, JA1COU, JA4CXX, JH1TWX, JA3IYX,
 JA4DQX, JA4CFO, NW6UP (Random order)</value>
+  </data>
+  <data name="text_freqRange1" xml:space="preserve">
+    <value>420.0,460.0</value>
+  </data>
+  <data name="text_freqRange2" xml:space="preserve">
+    <value>144.0,148.0</value>
   </data>
   <data name="text_sshDisabledValue" xml:space="preserve">
     <value>(Disabled)</value>
